@@ -11,7 +11,8 @@
 [Mm]emoryCaptures/
 
 # My own stuff I want it to ignore
-6000FlatButtonIcon
+6000FlatButtonIcon/
+fantasyiconsmegapack/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
