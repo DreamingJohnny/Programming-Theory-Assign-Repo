@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cargo : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class Cargo : MonoBehaviour {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[SerializeField] private CargoType cargoType;
+
+	[SerializeField] private float flammability;
+	[SerializeField] private float ballistic;
+	[SerializeField] private float value;
+
+	public float GetFlammability { get { return flammability; } }
+	public float GetBallistic { get { return ballistic; } }
+	public float GetValue { get { return value; } }
+
+
 }

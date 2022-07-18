@@ -8,11 +8,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5471872835029381408}
+  - component: {fileID: 8206880076135302880}
   - component: {fileID: 1724859801949012499}
   - component: {fileID: 5919036912798080995}
   - component: {fileID: 6859165733175108107}
   - component: {fileID: 7068721792954138787}
+  - component: {fileID: 4368438350059045942}
+  - component: {fileID: 4721816028732628552}
   m_Layer: 0
   m_Name: Cargo
   m_TagString: Untagged
@@ -20,20 +22,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5471872835029381408
-Transform:
+--- !u!224 &8206880076135302880
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875668100085048770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.94, y: 0.96, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 7.94, y: 0.96}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &1724859801949012499
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -61,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3defea38bc5bfe24c841f0ade755c417, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,3 +119,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4368438350059045942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875668100085048770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a57667eddebf1341a6e5b2ddda047ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cargoType: 0
+  cargoSprite: {fileID: 0}
+  flammability: 0
+  ballistic: 0
+  value: 0
+--- !u!222 &4721816028732628552
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875668100085048770}
+  m_CullTransparentMesh: 1
