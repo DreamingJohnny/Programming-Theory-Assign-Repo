@@ -43,3 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f60d6061ee1ac448b6604511a524d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  pirateSpawner: {fileID: 0}
+  cargoSpawner: {fileID: 0}
+  engine: {fileID: 0}

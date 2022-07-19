@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Navigator : MonoBehaviour {
 
+	public delegate void ShipAction();
+	public static event ShipAction OnShipReachedGoal;
+
 	[SerializeField] private Engine engine;
 
 	//TODO: Need a better name on travelDistanceComplete
@@ -24,22 +27,19 @@ public class Navigator : MonoBehaviour {
 	public bool HasReachedGoal { get { return hasReachedGoal; } }
 
 	void Start() {
-		//As the game begins distanceLeft should be set to travelDistanceTotal then.
 		distanceLeft = travelDistanceComplete;
 		Debug.Assert(engine != null);
 	}
 
 	void Update() {
 		if(distanceLeft <= 0) {
-			Debug.Log("The ship has reached its destination!");
+			OnShipReachedGoal();
 			return;
 		}
 
 		if(engine.isActiveAndEnabled && engine.IsRunning) {
 			currentSpeed = engine.Speed * Time.deltaTime;
 			distanceLeft -= currentSpeed;
-			Debug.Log($"DistanceLeft is now {distanceLeft}");
 		}
-
 	}
 }

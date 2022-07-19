@@ -12,11 +12,15 @@ public class GameManager : MonoBehaviour {
 	private void OnEnable() {
 		TitleScreen.OnStartButtonPressed += HandleOnStartButtonPressed;
 		TitleScreen.OnQuitButtonPressed += HandleOnQuitButtonPressed;
+
+		Navigator.OnShipReachedGoal += HandleOnGameWon;
 	}
 
 	private void OnDisable() {
 		TitleScreen.OnStartButtonPressed -= HandleOnStartButtonPressed;
 		TitleScreen.OnQuitButtonPressed -= HandleOnQuitButtonPressed;
+
+		Navigator.OnShipReachedGoal -= HandleOnGameWon;
 	}
 
 	private void HandleOnStartButtonPressed() {
@@ -27,6 +31,10 @@ public class GameManager : MonoBehaviour {
 	private void HandleOnQuitButtonPressed() {
 		Debug.Log("Now the game should quit...");
 		Application.Quit();
+	}
+
+	private void HandleOnGameWon() {
+		Debug.Log("Horray! You reached safe harbor! The game is won!");
 	}
 
 	private void StartGame() {
