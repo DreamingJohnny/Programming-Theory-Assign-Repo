@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
 		UIHandler.OnQuitButtonPressed += HandleOnQuitButtonPressed;
 
 		Navigator.OnShipReachedGoal += HandleOnGameWon;
+		Ship.OnShipBoarded += HandleOnGameOver;
 	}
 
 	private void OnDisable() {
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour {
 		TitleScreen.OnQuitButtonPressed -= HandleOnQuitButtonPressed;
 
 		Navigator.OnShipReachedGoal -= HandleOnGameWon;
+		Ship.OnShipBoarded -= HandleOnGameOver;
 	}
 
 	private void HandleOnStartButtonPressed() {
@@ -38,12 +40,13 @@ public class GameManager : MonoBehaviour {
 	private void HandleOnGameWon() {
 		Debug.Log("Horray! You reached safe harbor! The game is won!");
 		uiHandler.ShowVictory();
+		//TODO: Stop all other activities, like spawner etc,
 	}
 
 	private void HandleOnGameOver() {
 		Debug.Log("Oh no! You lost the game!");
 		uiHandler.ShowGameOver();
-		//Stop all other activities, like spawner etc,
+		//TODO: Stop all other activities, like spawner etc,
 	}
 
 	private void StartGame() {

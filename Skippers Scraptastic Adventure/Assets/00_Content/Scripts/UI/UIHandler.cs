@@ -13,6 +13,7 @@ public class UIHandler : MonoBehaviour {
 	[SerializeField] private Button retry;
 	[SerializeField] private Button start;
 	[SerializeField] private Button quit;
+	[SerializeField] private Slider travelLog;
 
 	public delegate void ButtonAction();
 	public static event ButtonAction OnStartButtonPressed;
@@ -26,6 +27,7 @@ public class UIHandler : MonoBehaviour {
 
 		start.gameObject.SetActive(false);
 		titlePanel.SetActive(false);
+		travelLog.gameObject.SetActive(true);
 	}
 
 	//Check so that GM still listens to this event.
@@ -38,6 +40,7 @@ public class UIHandler : MonoBehaviour {
 		Debug.Log($"{this.name} was just told that the game was lost.");
 		gameOverPanel.SetActive(true);
 		retry.gameObject.SetActive(true);
+		travelLog.gameObject.SetActive(false);
 		//TODO: Also turn of the travelLog here
 		//Also, remember to add to travelLog that it needs check its' values again when enabled.
 	}
@@ -46,6 +49,6 @@ public class UIHandler : MonoBehaviour {
 		Debug.Log($"{this.name} was just told that the game was won!");
 		victoryPanel.SetActive(true);
 		retry.gameObject.SetActive(true);
+		travelLog.gameObject.SetActive(false);
 	}
-
 }
