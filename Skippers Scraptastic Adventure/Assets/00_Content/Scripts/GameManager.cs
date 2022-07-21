@@ -6,9 +6,9 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField] private UIHandler uiHandler;
 
-	[SerializeField] private GameObject ship;
+	[SerializeField] private Ship ship;
 	[SerializeField] private Spawner pirateSpawner;
-	[SerializeField] private Spawner cargoSpawner;
+	//[SerializeField] private Spawner cargoSpawner;
 	[SerializeField] private Engine engine;
 
 	private void OnEnable() {
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
 
 	private void HandleOnStartButtonPressed() {
 		Debug.Log("Start game...");
-		StartGame();
+		SetObjectState(true);
 	}
 
 	private void HandleOnQuitButtonPressed() {
@@ -40,22 +40,25 @@ public class GameManager : MonoBehaviour {
 	private void HandleOnGameWon() {
 		Debug.Log("Horray! You reached safe harbor! The game is won!");
 		uiHandler.ShowVictory();
-		//TODO: Stop all other activities, like spawner etc,
+		SetObjectState(false);
 	}
 
 	private void HandleOnGameOver() {
 		Debug.Log("Oh no! You lost the game!");
 		uiHandler.ShowGameOver();
-		//TODO: Stop all other activities, like spawner etc,
+		SetObjectState(false);
 	}
 
-	private void StartGame() {
-		ship.gameObject.SetActive(true);
-		pirateSpawner.gameObject.SetActive(true);
-		cargoSpawner.gameObject.SetActive(true);
-		engine.gameObject.SetActive(true);
+	private void SetObjectState(bool state) {
+		ship.gameObject.SetActive(state);
+		pirateSpawner.gameObject.SetActive(state);
+		//cargoSpawner.gameObject.SetActive(state);
+		//TODO: Check if engine needs to be turned on/off on its own, isn't it part of the ship?
+		//engine.gameObject.SetActive(state);
 
-		//TODO: Add starting the various objects, such as cargoSpawner, pirateSpawner, cannonSpawner, etc.
-		//Will also need functionality later on for resetting a lot of values, destroying existing cargo etc.
+		//TODO: Will also need functionality later on for resetting a lot of values, destroying existing cargo etc.
+		//Actually don't think I will need that if these objects just have detailed in their onEnable & disable what they should do.
+		//TODO: Include of course in spawners that they'll need to destroy all of the objects that they've already created.
+		//TODO: Also, spawners must child the objects they instantiate, and make array of them, and then remove themselves from array when/if destroyed? Or listen to event...?
 	}
 }

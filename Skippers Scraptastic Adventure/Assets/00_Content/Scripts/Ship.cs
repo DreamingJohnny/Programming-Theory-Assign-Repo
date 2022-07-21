@@ -11,12 +11,8 @@ public class Ship : MonoBehaviour {
 
 	}
 
-	void Update() {
-
-	}
 
 	private void OnTriggerEnter(Collider other) {
-		Debug.Log("Does this collision even trigger?");
 		if (other.TryGetComponent<PirateShip>(out PirateShip pirateShip)) {
 			Debug.Log("A pirate ship managed to board us!");
 			OnShipBoarded();

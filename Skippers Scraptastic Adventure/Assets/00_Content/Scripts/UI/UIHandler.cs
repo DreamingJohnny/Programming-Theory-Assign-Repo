@@ -34,7 +34,6 @@ public class UIHandler : MonoBehaviour {
 		travelLog.gameObject.SetActive(true);
 	}
 
-	//Check so that GM still listens to this event.
 	public void QuitPressed() {
 		Debug.Log("QuitPressed function activated...");
 		OnQuitButtonPressed();
@@ -45,7 +44,6 @@ public class UIHandler : MonoBehaviour {
 		gameOverPanel.SetActive(true);
 		retry.gameObject.SetActive(true);
 		travelLog.gameObject.SetActive(false);
-		//TODO: Also turn of the travelLog here
 		//Also, remember to add to travelLog that it needs check its' values again when enabled.
 	}
 
