@@ -4,20 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TravelLog : MonoBehaviour {
-	
-	//So. it needs to ask Navigator then for current position?
-	//And for max position I suppose,
-	//So that it can show where you are along that axis later then?
-	//I do wonder if I could just include another image here, and have that image be the ship that is ontop?
-	//Hm... No, probably not, it will most likely be very difficult to tell that thing where it should go along the slider.
 
-	//For wishlist, some colorchange on slider depending on how far you've moved.
+	[SerializeField] private Navigator navigator;
+
+	private float maxDistance;
+	private float currentDistance;
+
 	void Start() {
-
+		if (navigator) {
+			maxDistance = navigator.RouteLength;
+			currentDistance = navigator.RouteLength - navigator.RouteLeft;
+			GetComponent<Slider>().maxValue = maxDistance;
+			GetComponent<Slider>().value = currentDistance;
+		}
+		else {
+			Debug.Log($"{this} seems to be missing a reference to the navigator, and will inactivate itself.");
+			this.gameObject.SetActive(false);
+		}
 	}
 
 	
 	void Update() {
-
+		if (navigator) GetComponent<Slider>().value = navigator.RouteTravelled;
 	}
 }

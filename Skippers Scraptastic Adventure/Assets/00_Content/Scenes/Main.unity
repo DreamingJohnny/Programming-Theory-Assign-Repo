@@ -139,6 +139,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3325452102462717211, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
   m_PrefabInstance: {fileID: 2453685738350618469}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &424068628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 424068629, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
+  m_PrefabInstance: {fileID: 2453685738350618469}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424068627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfde9e5bfbe6d454e8d2f07eb57a343c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &527022563 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9105810756123868532, guid: 2d648686afd459642b30c8f926debe83, type: 3}
@@ -682,6 +693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7686804051802106988, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
+      propertyPath: navigator
+      value: 
+      objectReference: {fileID: 424068628}
     - target: {fileID: 7887172695266973449, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -703,6 +718,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 424068629, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
+      propertyPath: routeLength
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 424068629, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
       propertyPath: travelDistanceComplete
       value: 3

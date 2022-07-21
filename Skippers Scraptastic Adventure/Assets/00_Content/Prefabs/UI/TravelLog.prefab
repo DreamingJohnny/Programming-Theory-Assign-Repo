@@ -271,6 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1054358977613479868}
   - component: {fileID: 4945687738680878626}
+  - component: {fileID: -4491157593512748415}
   m_Layer: 5
   m_Name: TravelLog
   m_TagString: Untagged
@@ -351,6 +352,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-4491157593512748415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3815326178699721407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398f72271c0a84143aeab694ce1687ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navigator: {fileID: 0}
 --- !u!1 &7176111794471915146
 GameObject:
   m_ObjectHideFlags: 0
