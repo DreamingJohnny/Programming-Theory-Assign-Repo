@@ -32,20 +32,21 @@ public class Navigator : MonoBehaviour {
 		routeLeft = routeLength;
 		routeTravelled = routeLength - routeLeft;
 		Debug.Assert(engine != null);
-
-
 	}
 
 	void Update() {
-		if(routeLeft <= 0) {
-			OnShipReachedGoal();
-			return;
-		}
 
-		if(engine.isActiveAndEnabled && engine.IsRunning) {
-			currentSpeed = engine.Speed * Time.deltaTime;
-			routeLeft -= currentSpeed;
-			routeTravelled += currentSpeed;
+			if (routeLeft <= 0) {
+				OnShipReachedGoal();
+				return;
+			}
+
+			if (engine.isActiveAndEnabled && engine.IsRunning) {
+				currentSpeed = engine.Speed * Time.deltaTime;
+				routeLeft -= currentSpeed;
+				routeTravelled += currentSpeed;
+			}
+
 		}
 	}
-}
+

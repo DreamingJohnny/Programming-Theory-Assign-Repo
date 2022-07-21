@@ -25,8 +25,12 @@ public class UIHandler : MonoBehaviour {
 		Debug.Log("StartPressed function activated...");
 		OnStartButtonPressed();
 
-		start.gameObject.SetActive(false);
 		titlePanel.SetActive(false);
+		victoryPanel.SetActive(false);
+		gameOverPanel.SetActive(false);
+
+		start.gameObject.SetActive(false);
+		retry.gameObject.SetActive(false);
 		travelLog.gameObject.SetActive(true);
 	}
 
@@ -46,7 +50,7 @@ public class UIHandler : MonoBehaviour {
 	}
 
 	public void ShowVictory() {
-		Debug.Log($"{this.name} was just told that the game was won!");
+		//Debug.Log($"{this.name} was just told that the game was won!");
 		victoryPanel.SetActive(true);
 		retry.gameObject.SetActive(true);
 		travelLog.gameObject.SetActive(false);
