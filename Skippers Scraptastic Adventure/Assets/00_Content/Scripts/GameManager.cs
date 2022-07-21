@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+	[SerializeField] private UIHandler uiHandler;
+
 	[SerializeField] private GameObject ship;
 	[SerializeField] private Spawner pirateSpawner;
 	[SerializeField] private Spawner cargoSpawner;
 	[SerializeField] private Engine engine;
 
 	private void OnEnable() {
-		TitleScreen.OnStartButtonPressed += HandleOnStartButtonPressed;
-		TitleScreen.OnQuitButtonPressed += HandleOnQuitButtonPressed;
+		UIHandler.OnStartButtonPressed += HandleOnStartButtonPressed;
+		UIHandler.OnQuitButtonPressed += HandleOnQuitButtonPressed;
 
 		Navigator.OnShipReachedGoal += HandleOnGameWon;
 	}
@@ -35,6 +37,13 @@ public class GameManager : MonoBehaviour {
 
 	private void HandleOnGameWon() {
 		Debug.Log("Horray! You reached safe harbor! The game is won!");
+		uiHandler.ShowVictory();
+	}
+
+	private void HandleOnGameOver() {
+		Debug.Log("Oh no! You lost the game!");
+		uiHandler.ShowGameOver();
+		//Stop all other activities, like spawner etc,
 	}
 
 	private void StartGame() {
