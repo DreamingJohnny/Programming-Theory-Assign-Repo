@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7068721792954138787}
   - component: {fileID: 4368438350059045942}
   - component: {fileID: 4721816028732628552}
+  - component: {fileID: -4270607870494624741}
   m_Layer: 0
   m_Name: Cargo
   m_TagString: Untagged
@@ -132,7 +133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cargoType: 0
-  cargoSprite: {fileID: 0}
   flammability: 0
   ballistic: 0
   value: 0
@@ -144,3 +144,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875668100085048770}
   m_CullTransparentMesh: 1
+--- !u!114 &-4270607870494624741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875668100085048770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ace2a3dfb94cd4e89d93df54c07fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

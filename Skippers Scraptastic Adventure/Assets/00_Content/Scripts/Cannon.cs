@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Cannon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField] private Light dropPointLight;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void Start() {
+		dropPointLight.gameObject.SetActive(false);
+	}
+
+	private void OnTriggerEnter(Collider other) {
+		if(other.TryGetComponent<Cargo>(out Cargo cargo)) {
+			dropPointLight.gameObject.SetActive(true);
+		}
+	}
+
+	private void OnTriggerExit(Collider other) {
+		if(other.TryGetComponent<Cargo>(out Cargo cargo)) {
+			dropPointLight.gameObject.SetActive(false);
+		}
+	}
+
 }

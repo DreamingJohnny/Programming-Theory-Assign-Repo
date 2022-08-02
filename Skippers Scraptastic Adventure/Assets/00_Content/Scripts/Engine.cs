@@ -6,7 +6,7 @@ public class Engine : MonoBehaviour {
 
 	//Needs a place where it can pick up the cargo that you drop into it...
 	//And then a way to burn that cargo then, so, give away a certain amount of speed, based on it's "heat" or "output" or whatever...
-
+	[SerializeField] private Light dropPoint;
 
 	//Hm, I do wonder if I should change this one to just simply looking at the values of fuel instead, and in that case, might as well just have the public one?
 	[Tooltip("Checks if the engine currently has any fuel.")]
@@ -48,6 +48,7 @@ public class Engine : MonoBehaviour {
 	void Start() {
 		//TODO: Later on, add a button that sends a signal to attempt to start the engine, then remove this bool from Start.
 		isRunning = true;
+		dropPoint.gameObject.SetActive(false);
 	}
 
 	void Update() {
@@ -67,5 +68,18 @@ public class Engine : MonoBehaviour {
 
 	public void SetFuel(Cargo cargo) {
 		fuelAmount += cargo.GetFlammability;
+	}
+
+	private void OnTriggerEnter(Collider other) {
+		if (other.TryGetComponent<Cargo>(out Cargo cargo)) {
+			dropPoint.gameObject.SetActive(true);
+			//TODO: Figure out how to destroy the object, if you drop it inside the zone.
+		}
+	}
+
+	private void OnTriggerExit(Collider other) {
+		if(other.TryGetComponent<Cargo>(out Cargo cargo)) {
+			dropPoint.gameObject.SetActive(false);
+		}
 	}
 }
