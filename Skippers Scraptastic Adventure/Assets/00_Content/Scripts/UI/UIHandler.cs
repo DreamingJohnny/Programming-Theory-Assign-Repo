@@ -14,13 +14,15 @@ public class UIHandler : MonoBehaviour {
 	[SerializeField] private Button start;
 	[SerializeField] private Button quit;
 	[SerializeField] private Slider travelLog;
+	[SerializeField] private Slider fuelGauge;
 
 	public delegate void ButtonAction();
 	public static event ButtonAction OnStartButtonPressed;
 	public static event ButtonAction OnQuitButtonPressed;
 
-	//Needs better name;
-	//Also add the invoked event here that GM should listen to to start everything right?
+	//TODO: Needs better name;
+	//TODO: Also add the invoked event here that GM should listen to to start everything right?
+	//Because this function is infact for when the StartButton is pressed, even when it happens the first time.
 	public void OnStartPressed() {
 		Debug.Log("StartPressed function activated...");
 		OnStartButtonPressed();
@@ -48,7 +50,6 @@ public class UIHandler : MonoBehaviour {
 	}
 
 	public void ShowVictory() {
-		//Debug.Log($"{this.name} was just told that the game was won!");
 		victoryPanel.SetActive(true);
 		retry.gameObject.SetActive(true);
 		travelLog.gameObject.SetActive(false);
