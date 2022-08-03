@@ -68,12 +68,13 @@ public class Engine : MonoBehaviour {
 
 	public void SetFuel(Cargo cargo) {
 		fuelAmount += cargo.GetFlammability;
+		Debug.Log("About now would be a good time to destroy the cargo...");
+		Destroy(cargo.gameObject);
 	}
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.TryGetComponent<Cargo>(out Cargo cargo)) {
 			dropPoint.gameObject.SetActive(true);
-			//TODO: Figure out how to destroy the object, if you drop it inside the zone.
 		}
 	}
 
@@ -82,4 +83,11 @@ public class Engine : MonoBehaviour {
 			dropPoint.gameObject.SetActive(false);
 		}
 	}
+
+	private void OnTriggerStay(Collider other) {
+		if (other.TryGetComponent<Cargo>(out Cargo cargo)) {
+			if(cargo.IsSelected == false) { SetFuel(cargo); }
+		}
+	}
+
 }
