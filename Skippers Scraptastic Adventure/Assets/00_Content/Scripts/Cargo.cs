@@ -16,7 +16,6 @@ public class Cargo : MonoBehaviour {
 	[SerializeField] private Material selectableMat;
 
 	[SerializeField] private string content;
-	[SerializeField] private CargoType cargoType;
 
 	[SerializeField] private float flammability;
 	[SerializeField] private float ballistic;

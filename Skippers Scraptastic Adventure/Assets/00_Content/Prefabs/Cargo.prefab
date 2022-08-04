@@ -96,11 +96,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8206880076135302880}
+  - component: {fileID: 4368438350059045942}
   - component: {fileID: 1724859801949012499}
   - component: {fileID: 5919036912798080995}
   - component: {fileID: 6859165733175108107}
   - component: {fileID: 7068721792954138787}
-  - component: {fileID: 4368438350059045942}
   - component: {fileID: 4721816028732628552}
   m_Layer: 0
   m_Name: Cargo
@@ -129,6 +129,35 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4368438350059045942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875668100085048770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a57667eddebf1341a6e5b2ddda047ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contentIcons:
+  - {fileID: 3841128307972663263}
+  - {fileID: 6392596404972819}
+  - {fileID: 8098320851047057077}
+  - {fileID: 8545274784211869302}
+  - {fileID: 3338365854942001413}
+  - {fileID: 7312689275846193203}
+  unknownContentIcon: {fileID: 21300000, guid: b0ef667988a7aea43a352965da10e03d, type: 3}
+  knownContentIcon: {fileID: 21300000, guid: 1d7fb0bd281d4a249ac243eaf315e3b3, type: 3}
+  standardMat: {fileID: 2100000, guid: 3defea38bc5bfe24c841f0ade755c417, type: 2}
+  selectableMat: {fileID: 2100000, guid: d67e70c17ce12084c8d2dbb0985b6fff, type: 2}
+  content: TestCargo
+  flammability: 3
+  ballistic: 3
+  value: 3
+  IsRevealed: 0
+  IsSelected: 0
 --- !u!33 &1724859801949012499
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -207,36 +236,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4368438350059045942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875668100085048770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a57667eddebf1341a6e5b2ddda047ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contentIcons:
-  - {fileID: 3841128307972663263}
-  - {fileID: 6392596404972819}
-  - {fileID: 8098320851047057077}
-  - {fileID: 8545274784211869302}
-  - {fileID: 3338365854942001413}
-  - {fileID: 7312689275846193203}
-  unknownContentIcon: {fileID: 21300000, guid: b0ef667988a7aea43a352965da10e03d, type: 3}
-  knownContentIcon: {fileID: 21300000, guid: 1d7fb0bd281d4a249ac243eaf315e3b3, type: 3}
-  standardMat: {fileID: 2100000, guid: 3defea38bc5bfe24c841f0ade755c417, type: 2}
-  selectableMat: {fileID: 2100000, guid: d67e70c17ce12084c8d2dbb0985b6fff, type: 2}
-  content: TestCargo
-  cargoType: 0
-  flammability: 3
-  ballistic: 3
-  value: 3
-  IsRevealed: 0
-  IsSelected: 0
 --- !u!222 &4721816028732628552
 CanvasRenderer:
   m_ObjectHideFlags: 0
