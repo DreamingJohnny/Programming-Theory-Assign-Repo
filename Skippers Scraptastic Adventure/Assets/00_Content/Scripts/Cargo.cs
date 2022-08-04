@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class Cargo : MonoBehaviour {
 
-	[SerializeField] private GameObject contentIcon;
+	[SerializeField] private GameObject[] contentIcons;
+
+	[SerializeField] private Sprite unknownContentIcon;
+	[SerializeField] private Sprite knownContentIcon;
 
 	[SerializeField] private Material standardMat;
 	[SerializeField] private Material selectableMat;
@@ -18,7 +22,7 @@ public class Cargo : MonoBehaviour {
 	[SerializeField] private float ballistic;
 	[SerializeField] private float value;
 
-	public bool isRevealed;
+	public bool IsRevealed;
 
 	public bool IsSelected;
 	public float GetFlammability { get { return flammability; } }
@@ -27,17 +31,28 @@ public class Cargo : MonoBehaviour {
 
 	private void Start() {
 		GetComponent<MeshRenderer>().material = standardMat;
-		contentIcon.SetActive(true);
+		SetContentIcons();
 	}
 
 	private void OnMouseEnter() {
 		GetComponent<MeshRenderer>().material = selectableMat;
-		if(isRevealed) { contentIcon.SetActive(true); }
 	}
 
 	private void OnMouseExit() {
 		GetComponent<MeshRenderer>().material = standardMat;
-		contentIcon.SetActive(false);
+	}
+
+	private void SetContentIcons() {
+		if (!IsRevealed) {
+			foreach (GameObject gameObject in contentIcons) {
+				gameObject.GetComponent<SpriteRenderer>().sprite = unknownContentIcon;
+			}
+		}
+		else {
+			foreach (GameObject gameObject in contentIcons) {
+				gameObject.GetComponent<SpriteRenderer>().sprite = knownContentIcon;
+			}
+		}
 	}
 
 	private void OnDestroy() {
