@@ -765,6 +765,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3544137905554709105, guid: d64e123e99f55e94fac8a8c4a1a3b997, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544137905554709105, guid: d64e123e99f55e94fac8a8c4a1a3b997, type: 3}
       propertyPath: m_WholeNumbers
       value: 0
       objectReference: {fileID: 0}
