@@ -15,6 +15,14 @@ public class UIHandler : MonoBehaviour {
 	[SerializeField] private Button quit;
 	[SerializeField] private Slider travelLog;
 	[SerializeField] private Slider fuelGauge;
+	//So, consider this then, I have a button that I want to have listen to some info from cannon.
+	//But cannon should work without it.
+	//So they shouldn't be too closely connected.
+	//However, should I then place an event on cannon, and have the button listen to that event?
+	//I'd rather have the UIHandler listen, if it should do more than one thing (if I want to have more than a button) although no, wait, if it should do more complicated things,
+	//then it should be better if it had it's own thing. However, will it be okay with that starting on its own. If cannon is inactive to begin with I mean, hm...
+	//so CannonUI should subscribe in its enable right?... yeees... however, it should be enabled and disabled by UIHandler then?
+	[SerializeField] private Button fireCannon;
 
 	public delegate void ButtonAction();
 	public static event ButtonAction OnStartButtonPressed;
