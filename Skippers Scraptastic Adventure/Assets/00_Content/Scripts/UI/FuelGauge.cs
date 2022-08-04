@@ -19,7 +19,6 @@ public class FuelGauge : MonoBehaviour {
 		}
 	}
 
-
 	void Update() {
 		if (engine) GetComponent<Slider>().value = engine.FuelAmount;
 	}
