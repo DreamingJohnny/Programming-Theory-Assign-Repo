@@ -54,7 +54,6 @@ public class Engine : MonoBehaviour {
 
 	void Start() {
 		//TODO: Later on, add a button that sends a signal to attempt to start the engine, then remove this bool from Start.
-		isRunning = true;
 		dropPointLight.gameObject.SetActive(false);
 	}
 
@@ -72,6 +71,11 @@ public class Engine : MonoBehaviour {
 		else {
 			fuelAmount -= fuelConsumption * Time.deltaTime;
 		}
+	}
+
+	public void StartEngine(bool toggle) {
+		Debug.Log($"{toggle}");
+		isRunning = toggle;
 	}
 
 	private void SetEngineLight() {
