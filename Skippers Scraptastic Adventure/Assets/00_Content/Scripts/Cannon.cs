@@ -57,6 +57,7 @@ public class Cannon : MonoBehaviour
 		if(other.TryGetComponent<Cargo>(out Cargo cargo)) {
 			if(cargo.IsSelected == false) {
 				SetAmmunition(cargo.GetBallistic);
+				//ShowName(cargo.GetContent);
 				Destroy(cargo.gameObject);
 			}
 		}

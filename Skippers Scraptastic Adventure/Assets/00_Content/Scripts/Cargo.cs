@@ -7,6 +7,9 @@ using System;
 
 public class Cargo : MonoBehaviour {
 
+	public delegate void CargoAction(string content);
+	public static event CargoAction OnCargoDestroyed;
+
 	[SerializeField] private GameObject[] contentIcons;
 
 	[SerializeField] private Sprite unknownContentIcon;
@@ -24,6 +27,8 @@ public class Cargo : MonoBehaviour {
 	public bool IsRevealed;
 
 	public bool IsSelected;
+
+	public string GetContent { get { return content; } }
 	public float GetFlammability { get { return flammability; } }
 	public float GetBallistic { get { return ballistic; } }
 	public float GetValue { get { return value; } }
@@ -56,5 +61,6 @@ public class Cargo : MonoBehaviour {
 
 	private void OnDestroy() {
 		Debug.Log("This object will now be destroyed...");
+		//OnCargoDestroyed(content);
 	}
 }

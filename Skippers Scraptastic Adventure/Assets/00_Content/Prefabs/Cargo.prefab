@@ -101,7 +101,6 @@ GameObject:
   - component: {fileID: 5919036912798080995}
   - component: {fileID: 6859165733175108107}
   - component: {fileID: 7068721792954138787}
-  - component: {fileID: 4721816028732628552}
   m_Layer: 0
   m_Name: Cargo
   m_TagString: Untagged
@@ -236,14 +235,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!222 &4721816028732628552
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875668100085048770}
-  m_CullTransparentMesh: 1
 --- !u!1 &3338365854942001413
 GameObject:
   m_ObjectHideFlags: 0

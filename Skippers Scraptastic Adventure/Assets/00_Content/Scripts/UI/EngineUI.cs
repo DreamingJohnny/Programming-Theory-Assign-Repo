@@ -12,9 +12,9 @@ public class EngineUI : MonoBehaviour {
 	[SerializeField] private string stopText;
 
 	public void ChangeButtonText(bool toggle) {
-		if (toggle) { engineButton.GetComponent<TextMeshPro>().text = startText; }
+		if (toggle) { engineButton.GetComponent<TextMeshProUGUI>().text = startText; }
 		else {
-			engineButton.GetComponent<TextMeshPro>().text = stopText;
+			engineButton.GetComponent<TextMeshProUGUI>().text = stopText;
 		}
 	}
 
