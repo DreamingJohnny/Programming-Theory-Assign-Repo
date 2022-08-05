@@ -35,7 +35,7 @@ public class Cargo : MonoBehaviour {
 
 	private void Start() {
 		GetComponent<MeshRenderer>().material = standardMat;
-		SetContentIcons();
+		SetContentIcons(false);
 	}
 
 	private void OnMouseEnter() {
@@ -46,7 +46,9 @@ public class Cargo : MonoBehaviour {
 		GetComponent<MeshRenderer>().material = standardMat;
 	}
 
-	private void SetContentIcons() {
+	public void SetContentIcons(bool state) {
+		IsRevealed = state;
+
 		if (!IsRevealed) {
 			foreach (GameObject gameObject in contentIcons) {
 				gameObject.GetComponent<SpriteRenderer>().sprite = unknownContentIcon;
