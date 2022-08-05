@@ -22,16 +22,20 @@ public class Spawner : MonoBehaviour {
 	}
 
 	private void SpawnObject() {
-		Instantiate(toSpawn);
-		toSpawn.transform.SetPositionAndRotation(transform.position, transform.rotation);
-		spawnedObjects.Add(toSpawn);
+		GameObject clone = Instantiate(toSpawn);
+		clone.transform.SetPositionAndRotation(transform.position, transform.rotation);
+		spawnedObjects.Add(clone);
 	}
 
-	private void OnDisable() {
+	public void Stop() {
 
-			foreach (GameObject gameObject in spawnedObjects) {
-				Debug.Log($"Attempts to destroy {gameObject.name}");
+		foreach (GameObject gameObject in spawnedObjects) {
+			if (gameObject != null) {
+				spawnedObjects.Remove(gameObject);
 				Destroy(gameObject);
+				Debug.Log("One object destroyed...");
 			}
 		}
+		spawnedObjects.Clear();
+	}
 }

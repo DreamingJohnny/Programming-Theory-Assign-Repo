@@ -60,9 +60,4 @@ public class Cargo : MonoBehaviour {
 			}
 		}
 	}
-
-	private void OnDestroy() {
-		Debug.Log("This object will now be destroyed...");
-		//OnCargoDestroyed(content);
-	}
 }

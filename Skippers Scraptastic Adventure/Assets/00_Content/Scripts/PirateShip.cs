@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PirateShip : MonoBehaviour {
 
-	[SerializeField] private float speed;
 	[SerializeField] private float boardingSpeed;
 	[SerializeField] private float health;
 
@@ -15,12 +14,11 @@ public class PirateShip : MonoBehaviour {
 	}
 
 	void Update() {
-		rigidBody.position += Vector3.back * boardingSpeed * Time.deltaTime;
+		rigidBody.MovePosition(rigidBody.position += Vector3.back * boardingSpeed * Time.deltaTime);
 	}
 
 	public void TakeDamage(float damage) {
 		health -= damage;
-		Debug.Log($"{this.name} takes damage, health is now {health}");
 		CheckDeath();
 	}
 

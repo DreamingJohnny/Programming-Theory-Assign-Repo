@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Engine : MonoBehaviour {
 
-	//Needs a place where it can pick up the cargo that you drop into it...
-	//And then a way to burn that cargo then, so, give away a certain amount of speed, based on it's "heat" or "output" or whatever...
 	[SerializeField] private Light dropPointLight;
 	[SerializeField] private Light engineLight;
 	[SerializeField] private ParticleSystem fireParticle;
@@ -111,5 +109,4 @@ public class Engine : MonoBehaviour {
 			if(cargo.IsSelected == false) { SetFuel(cargo); }
 		}
 	}
-
 }
