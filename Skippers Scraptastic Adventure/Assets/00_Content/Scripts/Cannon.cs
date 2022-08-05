@@ -19,7 +19,8 @@ public class Cannon : MonoBehaviour
 		dropPointLight.gameObject.SetActive(false);
 
 		//So that the UI-element is up to date.
-		OnAmmunitionChanged(ammunition);
+		//TODO: Move and fix this later
+		//OnAmmunitionChanged(ammunition);
 	}
 
 	public void FireCannon() {

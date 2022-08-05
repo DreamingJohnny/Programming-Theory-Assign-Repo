@@ -14,8 +14,12 @@ public class UIHandler : MonoBehaviour {
 	[SerializeField] private Button start;
 	[SerializeField] private Button quit;
 
+	[SerializeField] private CannonUI cannonUI;
+	[SerializeField] private EngineUI engineUI;
+	[SerializeField] private CrowbarUI crowbarUI;
+
 	[SerializeField] private Slider travelLog;
-	[SerializeField] private Slider fuelGauge;
+	//[SerializeField] private Slider fuelGauge;
 
 	//So, consider this then, I have a button that I want to have listen to some info from cannon.
 	//But cannon should work without it.
@@ -24,9 +28,9 @@ public class UIHandler : MonoBehaviour {
 	//I'd rather have the UIHandler listen, if it should do more than one thing (if I want to have more than a button) although no, wait, if it should do more complicated things,
 	//then it should be better if it had it's own thing. However, will it be okay with that starting on its own. If cannon is inactive to begin with I mean, hm...
 	//so CannonUI should subscribe in its enable right?... yeees... however, it should be enabled and disabled by UIHandler then?
-	[SerializeField] private Button fireCannon;
+	//[SerializeField] private Button fireCannon;
 
-	[SerializeField] private TextMeshProUGUI destroyedCargoText;
+	//[SerializeField] private TextMeshProUGUI destroyedCargoText;
 
 	public delegate void ButtonAction();
 	public static event ButtonAction OnStartButtonPressed;
@@ -45,7 +49,15 @@ public class UIHandler : MonoBehaviour {
 
 		start.gameObject.SetActive(false);
 		retry.gameObject.SetActive(false);
-		travelLog.gameObject.SetActive(true);
+
+		SetHUD(true);
+	}
+
+	private void SetHUD(bool state) {
+		travelLog.gameObject.SetActive(state);
+		engineUI.gameObject.SetActive(state);
+		cannonUI.gameObject.SetActive(state);
+		crowbarUI.gameObject.SetActive(state);
 	}
 
 	public void QuitPressed() {
@@ -57,13 +69,14 @@ public class UIHandler : MonoBehaviour {
 		Debug.Log($"{this.name} was just told that the game was lost.");
 		gameOverPanel.SetActive(true);
 		retry.gameObject.SetActive(true);
-		travelLog.gameObject.SetActive(false);
+		SetHUD(false);
+
 		//Also, remember to add to travelLog that it needs check its' values again when enabled.
 	}
 
 	public void ShowVictory() {
 		victoryPanel.SetActive(true);
 		retry.gameObject.SetActive(true);
-		travelLog.gameObject.SetActive(false);
+		SetHUD(false);
 	}
 }

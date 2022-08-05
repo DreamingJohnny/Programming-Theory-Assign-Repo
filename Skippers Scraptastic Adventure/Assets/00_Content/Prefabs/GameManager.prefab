@@ -47,7 +47,7 @@ MonoBehaviour:
   uiHandler: {fileID: 0}
   ship: {fileID: 0}
   pirateSpawner: {fileID: 0}
-  engine: {fileID: 0}
+  cargoSpawner: {fileID: 0}
 --- !u!114 &1622938679
 MonoBehaviour:
   m_ObjectHideFlags: 0

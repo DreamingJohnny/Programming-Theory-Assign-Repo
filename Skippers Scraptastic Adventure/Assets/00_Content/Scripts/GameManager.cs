@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField] private Ship ship;
 	[SerializeField] private Spawner pirateSpawner;
-	//[SerializeField] private Spawner cargoSpawner;
-	[SerializeField] private Engine engine;
+	[SerializeField] private Spawner cargoSpawner;
+	//[SerializeField] private Engine engine;
 
 	private void OnEnable() {
 		UIHandler.OnStartButtonPressed += HandleOnStartButtonPressed;
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
 
 	private void HandleOnStartButtonPressed() {
 		Debug.Log("Start game...");
-		SetObjectState(true);
+		SetObjectsState(true);
 	}
 
 	private void HandleOnQuitButtonPressed() {
@@ -40,19 +40,19 @@ public class GameManager : MonoBehaviour {
 	private void HandleOnGameWon() {
 		Debug.Log("Horray! You reached safe harbor! The game is won!");
 		uiHandler.ShowVictory();
-		SetObjectState(false);
+		SetObjectsState(false);
 	}
 
 	private void HandleOnGameOver() {
 		Debug.Log("Oh no! You lost the game!");
 		uiHandler.ShowGameOver();
-		SetObjectState(false);
+		SetObjectsState(false);
 	}
 
-	private void SetObjectState(bool state) {
+	private void SetObjectsState(bool state) {
 		ship.gameObject.SetActive(state);
 		pirateSpawner.gameObject.SetActive(state);
-		//cargoSpawner.gameObject.SetActive(state);
+		cargoSpawner.gameObject.SetActive(state);
 		//TODO: Check if engine needs to be turned on/off on its own, isn't it part of the ship?
 		//engine.gameObject.SetActive(state);
 
