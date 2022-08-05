@@ -6,15 +6,20 @@ using TMPro;
 
 public class EngineUI : MonoBehaviour {
 
-	[SerializeField] private Toggle engineButton;
+	[SerializeField] private TextMeshProUGUI engineButton;
 
 	[SerializeField] private string startText;
 	[SerializeField] private string stopText;
 
 	public void ChangeButtonText(bool toggle) {
-		if (toggle) { engineButton.GetComponent<TextMeshProUGUI>().text = startText; }
+		if (toggle) {
+			engineButton.text = startText;
+			//engineButton.GetComponent<TextMeshProUGUI>().text = startText;
+			}
 		else {
-			engineButton.GetComponent<TextMeshProUGUI>().text = stopText;
+				//engineButton.GetComponent<TextMeshProUGUI>().text = stopText;
+				//engineButton.GetComponent<TMP_Text>().text = stopText;
+				engineButton.text = stopText;
 		}
 	}
 
