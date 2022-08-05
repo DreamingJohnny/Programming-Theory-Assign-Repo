@@ -10,11 +10,10 @@ public class CrowbarStation : MonoBehaviour {
 
 
 	private void OnTriggerEnter(Collider other) {
-		//If the station already holds a piece of carg it won't show that it is ready to accept a new one.
+		//If the station already holds a piece of cargo it won't show that it is ready to accept a new one.
 		if (held != null) return;
 
 		if (other.TryGetComponent<Cargo>(out Cargo cargo)) {
-			Debug.Log("cargo enters collider...");
 			dropSpotLight.gameObject.SetActive(true);
 		}
 	}
@@ -22,7 +21,6 @@ public class CrowbarStation : MonoBehaviour {
 	private void OnTriggerExit(Collider other) {
 		if (other.TryGetComponent<Cargo>(out Cargo cargo)) {
 			dropSpotLight.gameObject.SetActive(false);
-			Debug.Log("cargo exits collider...");
 			held = null;
 		}
 	}
@@ -41,7 +39,6 @@ public class CrowbarStation : MonoBehaviour {
 		if (held != null) {
 			if (held.IsRevealed != true) {
 				held.SetContentIcons(true);
-				Debug.Log("cargo has been revealed...");
 			}
 		}
 	}

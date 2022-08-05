@@ -28,31 +28,30 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void HandleOnStartButtonPressed() {
-		Debug.Log("Start game...");
 		SetObjectsState(true);
 	}
 
 	private void HandleOnQuitButtonPressed() {
-		Debug.Log("Now the game should quit...");
 		Application.Quit();
 	}
 
 	private void HandleOnGameWon() {
-		Debug.Log("Horray! You reached safe harbor! The game is won!");
 		uiHandler.ShowVictory();
 		SetObjectsState(false);
 	}
 
 	private void HandleOnGameOver() {
-		Debug.Log("Oh no! You lost the game!");
 		uiHandler.ShowGameOver();
 		SetObjectsState(false);
 	}
 
 	private void SetObjectsState(bool state) {
 		ship.gameObject.SetActive(state);
-		pirateSpawner.gameObject.SetActive(state);
-		cargoSpawner.gameObject.SetActive(state);
+
+		//pirateSpawner.gameObject.SetActive(state);
+		pirateSpawner.Stop();
+		cargoSpawner.Stop();
+		//cargoSpawner.gameObject.SetActive(state);
 		//TODO: Check if engine needs to be turned on/off on its own, isn't it part of the ship?
 		//engine.gameObject.SetActive(state);
 

@@ -15,6 +15,8 @@ public class Cannon : MonoBehaviour
 	public delegate void CannonAction(float ammo);
 	public static event CannonAction OnAmmunitionChanged;
 
+	private List<CannonBall> cannonBalls = new List<CannonBall>();
+
 	private void Start() {
 		dropPointLight.gameObject.SetActive(false);
 
@@ -25,7 +27,6 @@ public class Cannon : MonoBehaviour
 
 	public void FireCannon() {
 		if(ammunition <= 0f) { return; }
-		Debug.Log($"Cannon fired with {ammunition} value!");
 		ammunition = 0f;
 		//TODO: Go thorugh and look at this later please, because I'm unsure if this means that:
 		//1) I wouldn't actually need this to be serialized, couldn't I just create it in the script?
@@ -33,12 +34,15 @@ public class Cannon : MonoBehaviour
 		Instantiate(cannonBall);
 		cannonBall.transform.position = spawnPoint.transform.position;
 
+		//TODO: Look at this later.
+		//So, unfortunately, this will have a problem b-cause the cannonBall will also need to find itself if it is destroyed yes?
+		cannonBalls.Add(cannonBall);
+
 		OnAmmunitionChanged(ammunition);
 	}
 
 	private void SetAmmunition(float addedAmmo) {
 		ammunition += addedAmmo;
-		Debug.Log($"{name} now has a ballistics value of: {ammunition}.");
 		OnAmmunitionChanged(ammunition);
 	}
 
@@ -58,7 +62,6 @@ public class Cannon : MonoBehaviour
 		if(other.TryGetComponent<Cargo>(out Cargo cargo)) {
 			if(cargo.IsSelected == false) {
 				SetAmmunition(cargo.GetBallistic);
-				//ShowName(cargo.GetContent);
 				Destroy(cargo.gameObject);
 			}
 		}
