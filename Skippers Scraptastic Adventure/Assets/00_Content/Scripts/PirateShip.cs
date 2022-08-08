@@ -14,6 +14,14 @@ public class PirateShip : MonoBehaviour {
 		rigidBody = GetComponent<Rigidbody>();
 	}
 
+	private void OnEnable() {
+		GameManager.OnGameStopped += HandleOnDestruction;
+	}
+
+	private void OnDisable() {
+		GameManager.OnGameStopped -= HandleOnDestruction;
+	}
+
 	void Update() {
 		rigidBody.position += Vector3.back * boardingSpeed * Time.deltaTime;
 	}
@@ -26,8 +34,13 @@ public class PirateShip : MonoBehaviour {
 
 	private void CheckDeath() {
 		if(health <= 0f) {
-			Debug.Log("Pirateship about to be destroyed");
-			Destroy(this.gameObject);
+			HandleOnDestruction();
 		}
+	}
+
+	private void HandleOnDestruction() {
+		Debug.Log("Pirateship about to be destroyed");
+		GameManager.OnGameStopped -= HandleOnDestruction;
+		Destroy(gameObject);
 	}
 }

@@ -38,6 +38,17 @@ public class Cargo : MonoBehaviour {
 		SetContentIcons(false);
 	}
 
+	private void OnEnable() {
+		GameManager.OnGameStopped += HandleOnDestruction;	
+	}
+
+	public void HandleOnDestruction() {
+		GameManager.OnGameStopped -= HandleOnDestruction;
+
+		Debug.Log($"{name} is about to destroy itself.");
+		Destroy(gameObject);
+	}
+
 	private void OnMouseEnter() {
 		GetComponent<MeshRenderer>().material = selectableMat;
 	}
@@ -59,10 +70,5 @@ public class Cargo : MonoBehaviour {
 				gameObject.GetComponent<SpriteRenderer>().sprite = knownContentIcon;
 			}
 		}
-	}
-
-	private void OnDestroy() {
-		Debug.Log("This object will now be destroyed...");
-		//OnCargoDestroyed(content);
 	}
 }

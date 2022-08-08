@@ -59,7 +59,7 @@ public class Cannon : MonoBehaviour
 			if(cargo.IsSelected == false) {
 				SetAmmunition(cargo.GetBallistic);
 				//ShowName(cargo.GetContent);
-				Destroy(cargo.gameObject);
+				cargo.HandleOnDestruction();
 			}
 		}
 	}

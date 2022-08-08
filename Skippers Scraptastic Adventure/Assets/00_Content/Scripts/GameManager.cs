@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private Spawner cargoSpawner;
 	//[SerializeField] private Engine engine;
 
+	public delegate void GameAction();
+	public static event GameAction OnGameStopped;
+	public static event GameAction OnGameStarted;
+
 	private void OnEnable() {
 		UIHandler.OnStartButtonPressed += HandleOnStartButtonPressed;
 		UIHandler.OnQuitButtonPressed += HandleOnQuitButtonPressed;
@@ -41,12 +45,14 @@ public class GameManager : MonoBehaviour {
 		Debug.Log("Horray! You reached safe harbor! The game is won!");
 		uiHandler.ShowVictory();
 		SetObjectsState(false);
+		OnGameStopped();
 	}
 
 	private void HandleOnGameOver() {
 		Debug.Log("Oh no! You lost the game!");
 		uiHandler.ShowGameOver();
 		SetObjectsState(false);
+		OnGameStopped();
 	}
 
 	private void SetObjectsState(bool state) {
