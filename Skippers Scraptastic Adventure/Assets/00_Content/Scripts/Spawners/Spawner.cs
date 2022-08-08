@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour {
 		}
 	}
 
-	private void SpawnObject() {
+	public virtual void SpawnObject() {
 		GameObject clone = Instantiate(toSpawn);
 		clone.transform.SetPositionAndRotation(transform.position, transform.rotation);
 	}

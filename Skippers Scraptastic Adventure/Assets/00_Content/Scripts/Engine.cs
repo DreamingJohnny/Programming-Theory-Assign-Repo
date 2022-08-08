@@ -9,7 +9,6 @@ public class Engine : MonoBehaviour {
 	[SerializeField] private Light engineLight;
 	[SerializeField] private ParticleSystem fireParticle;
 
-	//Hm, I do wonder if I should change this one to just simply looking at the values of fuel instead, and in that case, might as well just have the public one?
 	[Tooltip("Checks if the engine currently has any fuel.")]
 	private bool isRunning;
 	public bool IsRunning { get { return isRunning; } }
@@ -80,7 +79,6 @@ public class Engine : MonoBehaviour {
 
 		if (fuelAmount <= 0) {
 			isRunning = false;
-			Debug.Log("The engine has no fuel.");
 		}
 		else {
 			fuelAmount -= fuelConsumption * Time.deltaTime;

@@ -11,16 +11,11 @@ public class EngineUI : MonoBehaviour {
 	[SerializeField] private string startText;
 	[SerializeField] private string stopText;
 
-	public void ChangeButtonText(bool toggle) {
-		if (toggle) {
-			engineButton.text = startText;
-			//engineButton.GetComponent<TextMeshProUGUI>().text = startText;
-			}
-		else {
-				//engineButton.GetComponent<TextMeshProUGUI>().text = stopText;
-				//engineButton.GetComponent<TMP_Text>().text = stopText;
-				engineButton.text = stopText;
-		}
+	private void Start() {
+		engineButton.text = startText;
 	}
-
+	public void ChangeButtonText(bool toggle) {
+		if (toggle) {	engineButton.text = stopText;	}
+		else {	engineButton.text = startText;	}
+	}
 }
