@@ -38,6 +38,17 @@ public class Cargo : MonoBehaviour {
 		SetContentIcons(false);
 	}
 
+	private void OnEnable() {
+		GameManager.OnGameStopped += HandleOnDestruction;	
+	}
+
+	public void HandleOnDestruction() {
+		GameManager.OnGameStopped -= HandleOnDestruction;
+
+		Debug.Log($"{name} is about to destroy itself.");
+		Destroy(gameObject);
+	}
+
 	private void OnMouseEnter() {
 		GetComponent<MeshRenderer>().material = selectableMat;
 	}

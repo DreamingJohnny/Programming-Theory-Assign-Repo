@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private Spawner cargoSpawner;
 	//[SerializeField] private Engine engine;
 
+	public delegate void GameAction();
+	public static event GameAction OnGameStopped;
+	public static event GameAction OnGameStarted;
+
 	private void OnEnable() {
 		UIHandler.OnStartButtonPressed += HandleOnStartButtonPressed;
 		UIHandler.OnQuitButtonPressed += HandleOnQuitButtonPressed;
@@ -38,11 +42,13 @@ public class GameManager : MonoBehaviour {
 	private void HandleOnGameWon() {
 		uiHandler.ShowVictory();
 		SetObjectsState(false);
+		OnGameStopped();
 	}
 
 	private void HandleOnGameOver() {
 		uiHandler.ShowGameOver();
 		SetObjectsState(false);
+		OnGameStopped();
 	}
 
 	private void SetObjectsState(bool state) {

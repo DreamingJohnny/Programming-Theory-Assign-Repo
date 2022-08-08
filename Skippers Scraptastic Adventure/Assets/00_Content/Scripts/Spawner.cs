@@ -5,14 +5,14 @@ using UnityEngine;
 public class Spawner : MonoBehaviour {
 
 	//Make this a more general spawner then, that you can apply on both the PirateSpawner and on the CargoSpawner. So they can spawn both kinds of things maybe?
-	private List<GameObject> spawnedObjects = new List<GameObject>();
+	//private List<GameObject> spawnedObjects = new List<GameObject>();
 
 	[SerializeField] private GameObject toSpawn;
 	[SerializeField] private float spawnSpan;
 	private float timeSinceSpawn;
 
 	private void Update() {
-		if(timeSinceSpawn <= spawnSpan) {
+		if (timeSinceSpawn <= spawnSpan) {
 			timeSinceSpawn += Time.deltaTime;
 		}
 		else {
@@ -24,18 +24,4 @@ public class Spawner : MonoBehaviour {
 	private void SpawnObject() {
 		GameObject clone = Instantiate(toSpawn);
 		clone.transform.SetPositionAndRotation(transform.position, transform.rotation);
-		spawnedObjects.Add(clone);
-	}
-
-	public void Stop() {
-
-		foreach (GameObject gameObject in spawnedObjects) {
-			if (gameObject != null) {
-				spawnedObjects.Remove(gameObject);
-				Destroy(gameObject);
-				Debug.Log("One object destroyed...");
-			}
-		}
-		spawnedObjects.Clear();
-	}
 }
