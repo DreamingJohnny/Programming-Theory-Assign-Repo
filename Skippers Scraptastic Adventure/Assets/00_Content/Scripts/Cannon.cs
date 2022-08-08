@@ -8,7 +8,7 @@ public class Cannon : MonoBehaviour
 	//TODO: Give this a Tooltip.
 	[SerializeField] private GameObject spawnPoint;
 
-	[SerializeField] private CannonBall cannonBall;
+	[SerializeField] private GameObject cannonBall;
 
 	[SerializeField] private float ammunition;
 
@@ -30,8 +30,8 @@ public class Cannon : MonoBehaviour
 		//TODO: Go thorugh and look at this later please, because I'm unsure if this means that:
 		//1) I wouldn't actually need this to be serialized, couldn't I just create it in the script?
 		//2) Will this make new copies all of the time then? Or will it be the same cannonBall?
-		Instantiate(cannonBall);
-		cannonBall.transform.position = spawnPoint.transform.position;
+		GameObject clone = Instantiate(cannonBall);
+		clone.transform.position = spawnPoint.transform.position;
 
 		OnAmmunitionChanged(ammunition);
 	}

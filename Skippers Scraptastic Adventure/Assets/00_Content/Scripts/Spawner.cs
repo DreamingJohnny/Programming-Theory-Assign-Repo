@@ -22,8 +22,8 @@ public class Spawner : MonoBehaviour {
 	}
 
 	private void SpawnObject() {
-		Instantiate(toSpawn);
-		toSpawn.transform.SetPositionAndRotation(transform.position, transform.rotation);
+		GameObject clone = Instantiate(toSpawn);
+		clone.transform.SetPositionAndRotation(transform.position, transform.rotation);
 		//spawnedObjects.Add(toSpawn);
 	}
 
