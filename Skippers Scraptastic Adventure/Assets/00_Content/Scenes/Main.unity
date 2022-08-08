@@ -776,7 +776,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 424068629, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
       propertyPath: routeLength
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2851165755560426173, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
       propertyPath: fuelConsumption
@@ -830,6 +830,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5462853522600967767, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
+      propertyPath: cannonBall
+      value: 
+      objectReference: {fileID: 2133950517655633120, guid: 7314d9f046e0e134095e9d716b819b50, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
 --- !u!1001 &8122383024881081508
