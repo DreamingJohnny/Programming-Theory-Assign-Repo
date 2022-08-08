@@ -34,10 +34,6 @@ public class Cannon : MonoBehaviour
 		GameObject clone = Instantiate(cannonBall);
 		clone.transform.position = spawnPoint.transform.position;
 
-		//TODO: Look at this later.
-		//So, unfortunately, this will have a problem b-cause the cannonBall will also need to find itself if it is destroyed yes?
-		cannonBalls.Add(cannonBall);
-
 		OnAmmunitionChanged(ammunition);
 	}
 

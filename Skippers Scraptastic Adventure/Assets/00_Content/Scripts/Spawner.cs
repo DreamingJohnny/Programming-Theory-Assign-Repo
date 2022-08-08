@@ -24,4 +24,9 @@ public class Spawner : MonoBehaviour {
 	private void SpawnObject() {
 		GameObject clone = Instantiate(toSpawn);
 		clone.transform.SetPositionAndRotation(transform.position, transform.rotation);
+	}
+
+	public void Stop() {
+
+	}
 }
