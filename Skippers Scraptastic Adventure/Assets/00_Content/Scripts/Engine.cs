@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,8 +51,23 @@ public class Engine : MonoBehaviour {
 		}
 	}
 
-	void Start() {
-		//TODO: Later on, add a button that sends a signal to attempt to start the engine, then remove this bool from Start.
+	private void OnEnable() {
+		GameManager.OnGameStarted += HandleGameStarted;
+		GameManager.OnGameStopped += HandleGameStopped;
+	}
+
+	private void OnDisable() {
+		GameManager.OnGameStarted -= HandleGameStarted;
+		GameManager.OnGameStopped -= HandleGameStopped;
+	}
+
+	private void HandleGameStopped() {
+		isRunning = false;
+		dropPointLight.gameObject.SetActive(false);
+	}
+
+	private void HandleGameStarted() {
+		isRunning = false;
 		dropPointLight.gameObject.SetActive(false);
 	}
 
@@ -87,8 +103,6 @@ public class Engine : MonoBehaviour {
 
 	public void SetFuel(Cargo cargo) {
 		fuelAmount += cargo.GetFlammability;
-		Debug.Log("About now would be a good time to destroy the cargo...");
-		//TODO: Might make a new function if there should be more stuff that should happen in Destroy-function.
 		Destroy(cargo.gameObject);
 	}
 
@@ -106,7 +120,10 @@ public class Engine : MonoBehaviour {
 
 	private void OnTriggerStay(Collider other) {
 		if (other.TryGetComponent<Cargo>(out Cargo cargo)) {
-			if(cargo.IsSelected == false) { SetFuel(cargo); }
+			if(cargo.IsSelected == false) { 
+				SetFuel(cargo);
+				dropPointLight.gameObject.SetActive(false);
+			}
 		}
 	}
 }

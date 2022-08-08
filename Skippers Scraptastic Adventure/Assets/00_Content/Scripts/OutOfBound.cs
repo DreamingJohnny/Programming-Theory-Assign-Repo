@@ -6,7 +6,7 @@ public class OutOfBound : MonoBehaviour {
 
 private void OnCollisionEnter(Collision collision) {
 		if (TryGetComponent<Cargo>(out Cargo cargo)) {
-			cargo.HandleOnDestruction();
+			Destroy(cargo.gameObject);
 		}
 		else if (TryGetComponent<CannonBall>(out CannonBall cannonBall)) {
 			cannonBall.HandleOnDestruction();

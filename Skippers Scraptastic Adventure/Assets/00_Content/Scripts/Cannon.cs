@@ -15,14 +15,20 @@ public class Cannon : MonoBehaviour
 	public delegate void CannonAction(float ammo);
 	public static event CannonAction OnAmmunitionChanged;
 
-	private List<CannonBall> cannonBalls = new List<CannonBall>();
-
 	private void Start() {
-		dropPointLight.gameObject.SetActive(false);
 
 		//So that the UI-element is up to date.
 		//TODO: Move and fix this later
 		//OnAmmunitionChanged(ammunition);
+	}
+
+	private void OnEnable() {
+		dropPointLight.gameObject.SetActive(false);
+		ammunition = 0f;
+	}
+
+	private void OnDisable() {
+		
 	}
 
 	public void FireCannon() {
@@ -60,6 +66,7 @@ public class Cannon : MonoBehaviour
 				SetAmmunition(cargo.GetBallistic);
 				//ShowName(cargo.GetContent);
 				cargo.HandleOnDestruction();
+				dropPointLight.gameObject.SetActive(false);
 			}
 		}
 	}

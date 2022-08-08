@@ -1,17 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-	//Make this a more general spawner then, that you can apply on both the PirateSpawner and on the CargoSpawner. So they can spawn both kinds of things maybe?
-	//private List<GameObject> spawnedObjects = new List<GameObject>();
+	public bool IsSpawning;
 
 	[SerializeField] private GameObject toSpawn;
 	[SerializeField] private float spawnSpan;
 	private float timeSinceSpawn;
 
+	private void OnEnable() {
+		GameManager.OnGameStopped += HandleGameStopped;
+		GameManager.OnGameStarted += HandleGameStarted;
+	}
+
+	private void OnDisable() {
+		GameManager.OnGameStarted -= HandleGameStarted;
+		GameManager.OnGameStopped -= HandleGameStopped;
+	}
+
+	private void HandleGameStarted() {
+		IsSpawning = true;
+		timeSinceSpawn = 0f;
+	}
+
+	private void HandleGameStopped() {
+		IsSpawning = false;
+	}
+
 	private void Update() {
+		if (!IsSpawning) return;
 		if (timeSinceSpawn <= spawnSpan) {
 			timeSinceSpawn += Time.deltaTime;
 		}
@@ -24,9 +44,5 @@ public class Spawner : MonoBehaviour {
 	private void SpawnObject() {
 		GameObject clone = Instantiate(toSpawn);
 		clone.transform.SetPositionAndRotation(transform.position, transform.rotation);
-	}
-
-	public void Stop() {
-
 	}
 }

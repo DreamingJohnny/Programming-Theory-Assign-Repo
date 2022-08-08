@@ -38,7 +38,6 @@ public class PirateShip : MonoBehaviour {
 
 	private void HandleOnDestruction() {
 		Debug.Log("Pirateship about to be destroyed");
-		GameManager.OnGameStopped -= HandleOnDestruction;
 		Destroy(gameObject);
 	}
 }

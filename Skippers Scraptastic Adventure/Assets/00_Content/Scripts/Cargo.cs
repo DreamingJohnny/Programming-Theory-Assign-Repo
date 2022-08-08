@@ -42,10 +42,11 @@ public class Cargo : MonoBehaviour {
 		GameManager.OnGameStopped += HandleOnDestruction;	
 	}
 
-	public void HandleOnDestruction() {
+	private void OnDisable() {
 		GameManager.OnGameStopped -= HandleOnDestruction;
+	}
 
-		Debug.Log($"{name} is about to destroy itself.");
+	public void HandleOnDestruction() {
 		Destroy(gameObject);
 	}
 

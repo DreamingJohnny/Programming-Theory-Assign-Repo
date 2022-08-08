@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,14 +32,27 @@ public class Navigator : MonoBehaviour {
 	public bool HasReachedGoal { get { return hasReachedGoal; } }
 
 	private void OnEnable() {
+
+		GameManager.OnGameStarted += HandleGameStarted;
+		GameManager.OnGameStopped += HandleGameStopped;
+	}
+
+	private void OnDisable() {
+		GameManager.OnGameStarted -= HandleGameStarted;
+		GameManager.OnGameStopped -= HandleGameStopped;
+	}
+
+	private void HandleGameStarted() {
 		isTravelling = true;
 		routeLeft = routeLength;
 		routeTravelled = routeLength - routeLeft;
 	}
+	private void HandleGameStopped() {
+		isTravelling = false;
+		currentSpeed = 0f;
+	}
 
 	void Start() {
-		routeLeft = routeLength;
-		routeTravelled = routeLength - routeLeft;
 		Debug.Assert(engine != null);
 	}
 
@@ -58,4 +72,3 @@ public class Navigator : MonoBehaviour {
 		}
 	}
 }
-

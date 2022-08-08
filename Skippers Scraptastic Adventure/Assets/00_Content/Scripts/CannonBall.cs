@@ -13,6 +13,10 @@ public class CannonBall : MonoBehaviour {
 		GameManager.OnGameStopped += HandleOnDestruction;
 	}
 
+	private void OnDisable() {
+		GameManager.OnGameStopped -= HandleOnDestruction;
+	}
+
 	private void FixedUpdate() {
 		GetComponent<Rigidbody>().AddForce(Vector3.forward * speed * Time.deltaTime);		
 	}
@@ -26,7 +30,6 @@ public class CannonBall : MonoBehaviour {
 	}
 
 	public void HandleOnDestruction() {
-		GameManager.OnGameStopped -= HandleOnDestruction;
-		Destroy(this);
+		Destroy(gameObject);
 	}
 }
