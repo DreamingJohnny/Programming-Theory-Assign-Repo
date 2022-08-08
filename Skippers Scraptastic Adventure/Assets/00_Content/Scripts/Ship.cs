@@ -7,11 +7,6 @@ public class Ship : MonoBehaviour {
 	public delegate void ShipAction();
 	public static event ShipAction OnShipBoarded;
 
-	void Start() {
-
-	}
-
-
 	private void OnTriggerEnter(Collider other) {
 		if (other.TryGetComponent<PirateShip>(out PirateShip pirateShip)) {
 			Debug.Log("A pirate ship managed to board us!");

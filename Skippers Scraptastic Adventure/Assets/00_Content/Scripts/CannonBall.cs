@@ -19,7 +19,6 @@ public class CannonBall : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.TryGetComponent<PirateShip>(out PirateShip pirateShip)) {
-			Debug.Log($"{name} just hit a pirate ship!");
 			pirateShip.TakeDamage(damage);
 			Debug.Log($"{name} about to be destroyed.");
 			HandleOnDestruction();

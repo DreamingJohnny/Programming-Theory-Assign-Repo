@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OutOfBound : MonoBehaviour {
 
-	private void OnCollisionEnter(Collision collision) {
+private void OnCollisionEnter(Collision collision) {
 		if (TryGetComponent<Cargo>(out Cargo cargo)) {
 			cargo.HandleOnDestruction();
 		}

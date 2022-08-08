@@ -24,14 +24,4 @@ public class Spawner : MonoBehaviour {
 	private void SpawnObject() {
 		GameObject clone = Instantiate(toSpawn);
 		clone.transform.SetPositionAndRotation(transform.position, transform.rotation);
-		//spawnedObjects.Add(toSpawn);
-	}
-
-	private void OnDisable() {
-
-		//foreach (GameObject gameObject in spawnedObjects) {
-		//	Debug.Log($"Attempts to destroy {gameObject.name}");
-		//	Destroy(gameObject);
-		//}
-	}
 }
