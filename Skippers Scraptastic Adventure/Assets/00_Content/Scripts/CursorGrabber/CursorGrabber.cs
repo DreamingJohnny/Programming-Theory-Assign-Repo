@@ -6,38 +6,54 @@ using UnityEngine;
 public class CursorGrabber : MonoBehaviour {
 
 	private GameObject selectedObject;
+	private GameObject heldObject;
+
+	private Vector3 targetPosition;
+
+	[SerializeField] private float zMax;
+	[SerializeField] private float zMin;
+
+	[SerializeField] private float xMax;
+	[SerializeField] private float xMin;
 
 	[SerializeField] private float yOffset;
 
-	void Update() {
+	private void FixedUpdate() {
+		var hit = CastRay();
 
-		RaycastHit hit = CastRay();
-
-		//Checks so that cursor can only lift up cargo objects.
 		if (hit.collider != null) {
-			if (hit.collider.TryGetComponent<Cargo>(out Cargo cargo) == false) return;
-		}
-
-		if (Input.GetMouseButtonDown(0)) {
-			//Drops object if cursor is holding it.
-			if (selectedObject != null) {
-				//selectedObject.GetComponent<Rigidbody>().useGravity = true;
-				selectedObject.GetComponent<Cargo>().IsSelected = false;
+			Cargo cargo = hit.collider.GetComponent<Cargo>();
+			if (cargo != null) selectedObject = cargo.gameObject;
+			else {
 				selectedObject = null;
 			}
-			//Picks up object if you aren't currently holding one.
-			else {
-				selectedObject = hit.collider.gameObject;
-				//selectedObject.GetComponent<Rigidbody>().useGravity = false;
-				selectedObject.GetComponent<Cargo>().IsSelected = true;
-			}
 		}
 
-		if (selectedObject != null) {
-			Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(selectedObject.transform.position).z);
+		if (heldObject != null) {
+			Rigidbody rigid = heldObject.GetComponent<Rigidbody>();
+			rigid.MovePosition(targetPosition);
+		}
+	}
+
+	private void Update() {
+
+		if (Input.GetMouseButtonDown(0) && selectedObject != null) {
+			heldObject = selectedObject;
+			heldObject.GetComponent<Rigidbody>().isKinematic = true;
+			heldObject.GetComponent<Cargo>().IsHeld = true;
+		}
+		else if (Input.GetMouseButtonUp(0) && heldObject != null) {
+			heldObject.GetComponent<Rigidbody>().isKinematic = false;
+			heldObject.GetComponent<Cargo>().IsHeld = false;
+			heldObject = null;
+		}
+
+		if (heldObject != null) {
+			Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(heldObject.transform.position).z);
 			Vector3 worldPos = Camera.main.ScreenToWorldPoint(position);
-			selectedObject.GetComponent<Rigidbody>().MovePosition(new Vector3(worldPos.x, yOffset, worldPos.z));
-			//selectedObject.transform.position = new Vector3(worldPos.x, yOffset, worldPos.z);
+			worldPos.z = Mathf.Clamp(worldPos.z, zMin, zMax);
+			worldPos.x = Mathf.Clamp(worldPos.x, xMin, xMax);
+			targetPosition = new Vector3(worldPos.x, yOffset, worldPos.z);
 		}
 	}
 
