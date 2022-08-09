@@ -32,7 +32,6 @@ public class Navigator : MonoBehaviour {
 	public bool HasReachedGoal { get { return hasReachedGoal; } }
 
 	private void OnEnable() {
-
 		GameManager.OnGameStarted += HandleGameStarted;
 		GameManager.OnGameStopped += HandleGameStopped;
 	}

@@ -11,7 +11,6 @@ public class TitleScreen : MonoBehaviour {
 	public static event ButtonAction OnQuitButtonPressed;
 	
 	public void StartPressed() {
-		Debug.Log("StartPressed function activated...");
 		OnStartButtonPressed();
 	}
 	

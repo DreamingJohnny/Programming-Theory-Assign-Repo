@@ -16,19 +16,10 @@ public class UIHandler : MonoBehaviour {
 
 	[SerializeField] private CannonUI cannonUI;
 	[SerializeField] private EngineUI engineUI;
+	[SerializeField] private GameObject fuelGauge;
 	[SerializeField] private CrowbarUI crowbarUI;
-
+	[SerializeField] private CargoUI cargoUI;
 	[SerializeField] private Slider travelLog;
-	//[SerializeField] private Slider fuelGauge;
-
-	//So, consider this then, I have a button that I want to have listen to some info from cannon.
-	//But cannon should work without it.
-	//So they shouldn't be too closely connected.
-	//However, should I then place an event on cannon, and have the button listen to that event?
-	//I'd rather have the UIHandler listen, if it should do more than one thing (if I want to have more than a button) although no, wait, if it should do more complicated things,
-	//then it should be better if it had it's own thing. However, will it be okay with that starting on its own. If cannon is inactive to begin with I mean, hm...
-	//so CannonUI should subscribe in its enable right?... yeees... however, it should be enabled and disabled by UIHandler then?
-	//[SerializeField] private Button fireCannon;
 
 	//[SerializeField] private TextMeshProUGUI destroyedCargoText;
 
@@ -36,9 +27,6 @@ public class UIHandler : MonoBehaviour {
 	public static event ButtonAction OnStartButtonPressed;
 	public static event ButtonAction OnQuitButtonPressed;
 
-	//TODO: Needs better name;
-	//TODO: Also add the invoked event here that GM should listen to to start everything right?
-	//Because this function is infact for when the StartButton is pressed, even when it happens the first time.
 	public void OnStartPressed() {
 		Debug.Log("StartPressed function activated...");
 		OnStartButtonPressed();
@@ -73,7 +61,6 @@ public class UIHandler : MonoBehaviour {
 
 		//Also, remember to add to travelLog that it needs check its' values again when enabled.
 	}
-
 	public void ShowVictory() {
 		victoryPanel.SetActive(true);
 		retry.gameObject.SetActive(true);

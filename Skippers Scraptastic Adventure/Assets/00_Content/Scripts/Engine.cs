@@ -38,7 +38,6 @@ public class Engine : MonoBehaviour {
 	private float lowSpeed = 0.5f;
 	private float noSpeed = 0f;
 
-	//TODO: Have to check with someone how okay OR not okay this is later
 	//TODO: Add clear tooltip here, after checking if this allowed.
 	//TODO: Think about renaming these to something output, since speed might be something the ship should modify for?
 	public float Speed {
@@ -71,8 +70,10 @@ public class Engine : MonoBehaviour {
 	}
 
 	void Update() {
-		if (isRunning) RunEngine();
-		SetEngineLight();
+		if (isRunning) {
+			RunEngine();
+			SetEngineLight();
+		}
 	}
 
 	private void RunEngine() {
@@ -101,24 +102,24 @@ public class Engine : MonoBehaviour {
 
 	public void SetFuel(Cargo cargo) {
 		fuelAmount += cargo.GetFlammability;
-		Destroy(cargo.gameObject);
+		cargo.OnDestroy();
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		if (other.TryGetComponent<Cargo>(out Cargo cargo)) {
+		if (other.TryGetComponent(out Cargo cargo)) {
 			dropPointLight.gameObject.SetActive(true);
 		}
 	}
 
 	private void OnTriggerExit(Collider other) {
-		if(other.TryGetComponent<Cargo>(out Cargo cargo)) {
+		if (other.TryGetComponent(out Cargo cargo)) {
 			dropPointLight.gameObject.SetActive(false);
 		}
 	}
 
 	private void OnTriggerStay(Collider other) {
-		if (other.TryGetComponent<Cargo>(out Cargo cargo)) {
-			if(cargo.IsHeld == false) { 
+		if (other.TryGetComponent(out Cargo cargo)) {
+			if (cargo.IsHeld == false) {
 				SetFuel(cargo);
 				dropPointLight.gameObject.SetActive(false);
 			}

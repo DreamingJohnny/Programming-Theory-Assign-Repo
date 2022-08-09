@@ -14,8 +14,9 @@ public class EngineUI : MonoBehaviour {
 	private void Start() {
 		engineButton.text = startText;
 	}
+
 	public void ChangeButtonText(bool toggle) {
-		if (toggle) {	engineButton.text = stopText;	}
-		else {	engineButton.text = startText;	}
+		if (toggle) engineButton.text = stopText;
+		else engineButton.text = startText;
 	}
 }

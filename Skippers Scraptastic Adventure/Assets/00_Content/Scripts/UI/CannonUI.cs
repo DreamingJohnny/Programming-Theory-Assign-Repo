@@ -15,7 +15,7 @@ public class CannonUI : MonoBehaviour {
 
 	private void SetAmmoState(float ammo) {
 
-		if(ammo <= 0) {
+		if (ammo <= 0) {
 			GetComponent<Button>().interactable = false;
 		}
 		else {

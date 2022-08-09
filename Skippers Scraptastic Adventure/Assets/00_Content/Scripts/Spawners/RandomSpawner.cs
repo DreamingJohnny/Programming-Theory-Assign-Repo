@@ -12,7 +12,6 @@ public class RandomSpawner : Spawner {
 	}
 
 	private GameObject GetRandomSpawn() {
-
 		int index = Random.Range(0, gameObjects.Length);
 
 		return gameObjects[index];

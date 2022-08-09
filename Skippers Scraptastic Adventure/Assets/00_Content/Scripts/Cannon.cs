@@ -15,28 +15,14 @@ public class Cannon : MonoBehaviour
 	public delegate void CannonAction(float ammo);
 	public static event CannonAction OnAmmunitionChanged;
 
-	private void Start() {
-
-		//So that the UI-element is up to date.
-		//TODO: Move and fix this later
-		//OnAmmunitionChanged(ammunition);
-	}
-
 	private void OnEnable() {
 		dropPointLight.gameObject.SetActive(false);
 		ammunition = 0f;
 	}
 
-	private void OnDisable() {
-		
-	}
-
 	public void FireCannon() {
-		if(ammunition <= 0f) { return; }
+		if(ammunition <= 0f) return;
 		ammunition = 0f;
-		//TODO: Go thorugh and look at this later please, because I'm unsure if this means that:
-		//1) I wouldn't actually need this to be serialized, couldn't I just create it in the script?
-		//2) Will this make new copies all of the time then? Or will it be the same cannonBall?
 		GameObject clone = Instantiate(cannonBall);
 		clone.transform.position = spawnPoint.transform.position;
 
@@ -49,26 +35,24 @@ public class Cannon : MonoBehaviour
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		if(other.TryGetComponent<Cargo>(out Cargo cargo)) {
+		if (other.TryGetComponent(out Cargo _)) {
 			dropPointLight.gameObject.SetActive(true);
 		}
 	}
 
 	private void OnTriggerExit(Collider other) {
-		if(other.TryGetComponent<Cargo>(out Cargo cargo)) {
+		if (other.TryGetComponent(out Cargo _)) {
 			dropPointLight.gameObject.SetActive(false);
 		}
 	}
 
 	private void OnTriggerStay(Collider other) {
-		if(other.TryGetComponent<Cargo>(out Cargo cargo)) {
-			if(cargo.IsHeld == false) {
+		if(other.TryGetComponent(out Cargo cargo)) {
+			if (cargo.IsHeld == false) {
 				SetAmmunition(cargo.GetBallistic);
-				//ShowName(cargo.GetContent);
-				cargo.HandleOnDestruction();
+				cargo.OnDestroy();
 				dropPointLight.gameObject.SetActive(false);
 			}
 		}
 	}
-
 }

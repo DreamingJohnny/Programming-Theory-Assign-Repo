@@ -12,6 +12,8 @@ public class Cargo : MonoBehaviour {
 
 	[SerializeField] private GameObject[] contentIcons;
 
+	private MeshRenderer meshRenderer;
+
 	[SerializeField] private Sprite unknownContentIcon;
 	[SerializeField] private Sprite knownContentIcon;
 
@@ -34,28 +36,30 @@ public class Cargo : MonoBehaviour {
 	public float GetValue { get { return value; } }
 
 	private void Start() {
-		GetComponent<MeshRenderer>().material = standardMat;
+		meshRenderer = GetComponent<MeshRenderer>();
+		meshRenderer.material = standardMat;
 		SetContentIcons(false);
 	}
 
 	private void OnEnable() {
-		GameManager.OnGameStopped += HandleOnDestruction;	
+		GameManager.OnGameStopped += OnDestroy;	
 	}
 
 	private void OnDisable() {
-		GameManager.OnGameStopped -= HandleOnDestruction;
+		GameManager.OnGameStopped -= OnDestroy; 
 	}
 
-	public void HandleOnDestruction() {
+	public void OnDestroy() {
+		OnCargoDestroyed(content);
 		Destroy(gameObject);
 	}
 
 	private void OnMouseEnter() {
-		GetComponent<MeshRenderer>().material = selectableMat;
+		meshRenderer.material = selectableMat;
 	}
 
 	private void OnMouseExit() {
-		GetComponent<MeshRenderer>().material = standardMat;
+		meshRenderer.material = standardMat;
 	}
 
 	public void SetContentIcons(bool state) {

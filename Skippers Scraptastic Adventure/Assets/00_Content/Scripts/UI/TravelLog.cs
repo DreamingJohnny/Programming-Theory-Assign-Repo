@@ -23,7 +23,7 @@ public class TravelLog : MonoBehaviour {
 		}
 	}
 
-	
+
 	void Update() {
 		if (navigator) GetComponent<Slider>().value = navigator.RouteTravelled;
 	}

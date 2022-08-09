@@ -5,11 +5,11 @@ using UnityEngine;
 public class OutOfBound : MonoBehaviour {
 
 private void OnCollisionEnter(Collision collision) {
-		if (TryGetComponent<Cargo>(out Cargo cargo)) {
+		if (TryGetComponent(out Cargo cargo)) {
 			Destroy(cargo.gameObject);
 		}
-		else if (TryGetComponent<CannonBall>(out CannonBall cannonBall)) {
-			cannonBall.HandleOnDestruction();
+		else if (TryGetComponent(out CannonBall cannonBall)) {
+			cannonBall.OnDestroy();
 		}
 		else {
 			Debug.Log($"{collision.gameObject.name} crossed the bounds of {name}, and will now be destroyed");

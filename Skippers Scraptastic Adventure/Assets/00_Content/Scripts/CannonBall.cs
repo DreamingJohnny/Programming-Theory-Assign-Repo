@@ -7,29 +7,32 @@ public class CannonBall : MonoBehaviour {
 	[SerializeField] private float speed;
 	[SerializeField] private float damage;
 
-	//Needs some way to be completely destroyed if you restart level or whatever
+	private Rigidbody rigidBody;
+
+	private void Start() {
+		rigidBody = GetComponent<Rigidbody>();
+	}
 
 	private void OnEnable() {
-		GameManager.OnGameStopped += HandleOnDestruction;
+		GameManager.OnGameStopped += OnDestroy;
 	}
 
 	private void OnDisable() {
-		GameManager.OnGameStopped -= HandleOnDestruction;
+		GameManager.OnGameStopped -= OnDestroy;
 	}
 
 	private void FixedUpdate() {
-		GetComponent<Rigidbody>().AddForce(Vector3.forward * speed * Time.deltaTime);		
+		rigidBody.AddForce(Vector3.forward * speed * Time.deltaTime);		
 	}
 
 	private void OnCollisionEnter(Collision collision) {
-		if (collision.gameObject.TryGetComponent<PirateShip>(out PirateShip pirateShip)) {
+		if (collision.gameObject.TryGetComponent(out PirateShip pirateShip)) {
 			pirateShip.TakeDamage(damage);
-			Debug.Log($"{name} about to be destroyed.");
-			HandleOnDestruction();
+			OnDestroy();
 		}
 	}
 
-	public void HandleOnDestruction() {
+	public void OnDestroy() {
 		Destroy(gameObject);
 	}
 }
