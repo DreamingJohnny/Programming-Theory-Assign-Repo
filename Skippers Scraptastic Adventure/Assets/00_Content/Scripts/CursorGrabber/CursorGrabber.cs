@@ -45,6 +45,7 @@ public class CursorGrabber : MonoBehaviour {
 		else if (Input.GetMouseButtonUp(0) && heldObject != null) {
 			heldObject.GetComponent<Rigidbody>().isKinematic = false;
 			heldObject.GetComponent<Cargo>().IsHeld = false;
+			heldObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 			heldObject = null;
 		}
 

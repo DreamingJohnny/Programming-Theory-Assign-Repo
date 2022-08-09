@@ -13,33 +13,27 @@ public class Engine : MonoBehaviour {
 	private bool isRunning;
 	public bool IsRunning { get { return isRunning; } }
 
-	//TODO: Add tooltip here, but also, this should probably be turned into a static, and must be connected to the max on "Range" on fuelAmount,
 	[SerializeField] private float maxFuelAmount;
 	public float MaxFuel { get { return maxFuelAmount; } }
 
 	[Tooltip("Amount of fuel held in engine, is also the output the engine produces.")]
 	//TODO: Fix this so that there is an actual working max and min here.
 	[SerializeField][Range(0, 40)] private float fuelAmount;
-	public float FuelAmount { get { return fuelAmount; } }
+	public float FuelAmount { get { return fuelAmount; } set { fuelAmount = Mathf.Min(maxFuelAmount, value); } }
 
-	//TODO: Turns these into something static maybe?
-	//TODO: These, use them on UI element to change the color on the slider?
-	private float highFuelTreshold = 30f;
-	private float lowFuelTreshold = 10f;
-	private float noFuelTreshold = 0f;
+	private const float highFuelTreshold = 30f;
+	private const float lowFuelTreshold = 10f;
+	private const float noFuelTreshold = 0f;
 
 	[Tooltip("Amount of fuel consumed by engine per s.")]
 	[SerializeField][Min(0)] private float fuelConsumption;
 	public float FuelConsumption { get { return fuelConsumption; } }
 
-	//TODO: Turn these into something static maybe?
-	private float topSpeed = 3f;
-	private float halfSpeed = 2f;
-	private float lowSpeed = 0.5f;
-	private float noSpeed = 0f;
+	private const float topSpeed = 3f;
+	private const float halfSpeed = 2f;
+	private const float lowSpeed = 0.5f;
+	private const float noSpeed = 0f;
 
-	//TODO: Add clear tooltip here, after checking if this allowed.
-	//TODO: Think about renaming these to something output, since speed might be something the ship should modify for?
 	public float Speed {
 		get {
 			if (fuelAmount >= highFuelTreshold) return topSpeed;
@@ -78,11 +72,11 @@ public class Engine : MonoBehaviour {
 
 	private void RunEngine() {
 
-		if (fuelAmount <= 0) {
+		if (FuelAmount <= 0) {
 			isRunning = false;
 		}
 		else {
-			fuelAmount -= fuelConsumption * Time.deltaTime;
+			FuelAmount -= FuelConsumption * Time.deltaTime;
 		}
 	}
 
@@ -101,7 +95,7 @@ public class Engine : MonoBehaviour {
 	}
 
 	public void SetFuel(Cargo cargo) {
-		fuelAmount += cargo.GetFlammability;
+		FuelAmount += cargo.GetFlammability;
 		cargo.OnDestroy();
 	}
 

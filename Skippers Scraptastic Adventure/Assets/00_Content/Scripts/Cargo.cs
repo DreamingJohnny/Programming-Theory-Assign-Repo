@@ -30,7 +30,7 @@ public class Cargo : MonoBehaviour {
 
 	public bool IsHeld;
 
-	public string GetContent { get { return content; } }
+	public string Content { get { return content; } }
 	public float GetFlammability { get { return flammability; } }
 	public float GetBallistic { get { return ballistic; } }
 	public float GetValue { get { return value; } }

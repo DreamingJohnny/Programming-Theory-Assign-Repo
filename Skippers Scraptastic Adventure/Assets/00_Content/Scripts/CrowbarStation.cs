@@ -8,6 +8,11 @@ public class CrowbarStation : MonoBehaviour {
 
 	private Cargo held;
 
+	private void OnEnable() {
+		dropSpotLight.gameObject.SetActive(false);
+		held = null;
+	}
+
 	private void OnTriggerEnter(Collider other) {
 		//If the station already holds a piece of cargo it won't show that it is ready to accept a new one.
 		if (held != null) return;

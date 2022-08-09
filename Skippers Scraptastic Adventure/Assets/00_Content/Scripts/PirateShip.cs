@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PirateShip : MonoBehaviour {
 
-	[SerializeField] private float boardingSpeed;
-	[SerializeField] private float health;
+	[Range(0,15)] [SerializeField] private float boardingSpeed;
+	[Min(0)] [SerializeField] private float health;
+
+	public float Health { get { return health; } set { health = Mathf.Max(value, 0f); } }
+
+	public float BoardingSpeed { get { return boardingSpeed; } set { boardingSpeed = Mathf.Max(value, 0f); } }
 
 	private Rigidbody rigidBody;
 
@@ -22,16 +26,16 @@ public class PirateShip : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		rigidBody.MovePosition(rigidBody.position += Vector3.back * boardingSpeed * Time.deltaTime);
+		rigidBody.MovePosition(rigidBody.position += Vector3.back * BoardingSpeed * Time.deltaTime);
 	}
 
 	public void TakeDamage(float damage) {
-		health -= damage;
+		Health -= damage;
 		CheckDeath();
 	}
 
 	private void CheckDeath() {
-		if(health <= 0f) OnDestroy();
+		if(Health <= 0f) OnDestroy();
 	}
 
 	private void OnDestroy() {

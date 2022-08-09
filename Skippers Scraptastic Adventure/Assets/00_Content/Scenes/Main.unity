@@ -925,11 +925,31 @@ PrefabInstance:
       objectReference: {fileID: 1006677243}
     - target: {fileID: 6591067826565082677, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
       propertyPath: m_text
-      value: 
+      value: Ms Mays Fireworks
       objectReference: {fileID: 0}
     - target: {fileID: 6591067826565082677, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
       propertyPath: m_fontSize
-      value: 36
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591067826565082677, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591067826565082677, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591067826565082677, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591067826565082677, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591067826565082677, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
+      propertyPath: m_overflowMode
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6591067826565082677, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
       propertyPath: m_enableAutoSizing
@@ -943,6 +963,22 @@ PrefabInstance:
       propertyPath: cargoUI
       value: 
       objectReference: {fileID: 663325397}
+    - target: {fileID: 7543323041705221727, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 7543323041705221727, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7543323041705221727, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 340
+      objectReference: {fileID: 0}
+    - target: {fileID: 7543323041705221727, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -80
+      objectReference: {fileID: 0}
     - target: {fileID: 7686804051802106988, guid: 1ed600e7769f23548ab6db42d3d75a0a, type: 3}
       propertyPath: navigator
       value: 
@@ -959,6 +995,14 @@ PrefabInstance:
     - target: {fileID: 424068629, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
       propertyPath: routeLength
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 488388323646404901, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 488388323646404901, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
+      propertyPath: m_Center.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2851165755560426173, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
       propertyPath: fuelConsumption
@@ -1020,9 +1064,21 @@ PrefabInstance:
       propertyPath: cannonBall
       value: 
       objectReference: {fileID: 2133950517655633120, guid: 7314d9f046e0e134095e9d716b819b50, type: 3}
+    - target: {fileID: 6728167958718250722, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7089581322207727238, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212752900365008211, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
+      propertyPath: m_Size.y
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212752900365008211, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}
+      propertyPath: m_Center.y
+      value: 2.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfc82bc879424ce4ca7be16bf01c3d19, type: 3}

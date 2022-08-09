@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 	public static event GameAction OnGameStopped;
 	public static event GameAction OnGameStarted;
 
-	[SerializeField] private float difficultyRaiseSpan;
+	[Min(0)] [SerializeField] private float difficultyRaiseSpan;
 	private float timeSinceDifficultyRaised = 0f;
 	private int difficulty = 0;
 

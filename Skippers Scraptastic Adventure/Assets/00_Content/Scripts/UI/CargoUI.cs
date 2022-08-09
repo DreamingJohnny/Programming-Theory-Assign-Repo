@@ -10,7 +10,9 @@ public class CargoUI : MonoBehaviour {
 	[SerializeField] private TextMeshProUGUI cargoText;
 
 	private float timeShown;
-	private float timeShowingText = 5f;
+	public float TimeShown { get { return timeShown; } set { timeShown = Mathf.Max(value, 0f); } }
+
+	[SerializeField] private float timeShowingText = 5f;
 
 	private void OnEnable() {
 		Cargo.OnCargoDestroyed += SetCargoText;
@@ -23,12 +25,12 @@ public class CargoUI : MonoBehaviour {
 	}
 
 	private void SetCargoText(string content) {
-		timeShown = 0f;
-		cargoText.text = content;
+		TimeShown = 0f;
+		cargoText.SetText(content.Trim());
 	}
 
 	private void Update() {
-		if (timeShown <= timeShowingText) timeShown += Time.deltaTime;
+		if (TimeShown <= timeShowingText) TimeShown += Time.deltaTime;
 		else {
 			cargoText.text = "";
 		}
