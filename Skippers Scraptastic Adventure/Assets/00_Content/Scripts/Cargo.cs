@@ -26,7 +26,7 @@ public class Cargo : MonoBehaviour {
 
 	public bool IsRevealed;
 
-	public bool IsSelected;
+	public bool IsHeld;
 
 	public string GetContent { get { return content; } }
 	public float GetFlammability { get { return flammability; } }

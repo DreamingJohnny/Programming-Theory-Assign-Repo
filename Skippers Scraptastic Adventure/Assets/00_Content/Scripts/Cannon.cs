@@ -62,7 +62,7 @@ public class Cannon : MonoBehaviour
 
 	private void OnTriggerStay(Collider other) {
 		if(other.TryGetComponent<Cargo>(out Cargo cargo)) {
-			if(cargo.IsSelected == false) {
+			if(cargo.IsHeld == false) {
 				SetAmmunition(cargo.GetBallistic);
 				//ShowName(cargo.GetContent);
 				cargo.HandleOnDestruction();
