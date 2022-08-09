@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,16 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private UIHandler uiHandler;
 
 	[SerializeField] private Ship ship;
-	[SerializeField] private Spawner pirateSpawner;
-	[SerializeField] private Spawner cargoSpawner;
 
 	public delegate void GameAction();
 	public static event GameAction OnGameStopped;
 	public static event GameAction OnGameStarted;
+
+	[SerializeField] private float difficultyRaiseSpan;
+	private float timeSinceDifficultyRaised = 0f;
+	private int difficulty = 0;
+
+	public int Difficulty { get { return difficulty; } }
 
 	private void OnEnable() {
 		UIHandler.OnStartButtonPressed += HandleOnStartButtonPressed;
@@ -30,9 +35,25 @@ public class GameManager : MonoBehaviour {
 		Ship.OnShipBoarded -= HandleOnGameOver;
 	}
 
+	private void Update() {
+		if (timeSinceDifficultyRaised >= difficultyRaiseSpan) {
+			timeSinceDifficultyRaised = 0f;
+			difficulty++;
+		}
+		else {
+			timeSinceDifficultyRaised += Time.deltaTime;
+		}
+	}
+
 	private void HandleOnStartButtonPressed() {
 		SetObjectsState(true);
+		ResetDifficulty();
 		OnGameStarted();
+	}
+
+	private void ResetDifficulty() {
+		timeSinceDifficultyRaised = 0f;
+		difficulty = 0;
 	}
 
 	private void HandleOnQuitButtonPressed() {

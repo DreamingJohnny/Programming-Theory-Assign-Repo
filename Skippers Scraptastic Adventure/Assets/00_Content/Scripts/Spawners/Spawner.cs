@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-	public bool IsSpawning;
+	private bool isSpawning;
 
-	[SerializeField] private GameObject toSpawn;
+	[SerializeField] protected GameObject toSpawn;
 	[SerializeField] private float spawnSpan;
 	private float timeSinceSpawn;
 
@@ -21,17 +21,17 @@ public class Spawner : MonoBehaviour {
 		GameManager.OnGameStopped -= HandleGameStopped;
 	}
 
-	private void HandleGameStarted() {
-		IsSpawning = true;
+	protected virtual void HandleGameStarted() {
+		isSpawning = true;
 		timeSinceSpawn = 0f;
 	}
 
 	private void HandleGameStopped() {
-		IsSpawning = false;
+		isSpawning = false;
 	}
 
 	private void Update() {
-		if (!IsSpawning) return;
+		if (!isSpawning) return;
 		if (timeSinceSpawn <= spawnSpan) {
 			timeSinceSpawn += Time.deltaTime;
 		}
@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour {
 		}
 	}
 
-	public virtual void SpawnObject() {
+	protected virtual void SpawnObject() {
 		GameObject clone = Instantiate(toSpawn);
 		clone.transform.SetPositionAndRotation(transform.position, transform.rotation);
 	}

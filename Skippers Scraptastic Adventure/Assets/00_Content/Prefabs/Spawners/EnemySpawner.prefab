@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 386660235245699881}
-  - component: {fileID: 9105810756123868532}
+  - component: {fileID: -6941179377872330855}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9105810756123868532
+--- !u!114 &-6941179377872330855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,9 +40,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7745319478536883119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faeb4feb806d8214799bc091dacb0fa1, type: 3}
+  m_Script: {fileID: 11500000, guid: 41ff1ceb1489b3147b30f6beea392405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsSpawning: 0
-  toSpawn: {fileID: 1521326617462418343, guid: 4b81f5ec22a893c44ba0982581c2cf77, type: 3}
-  spawnSpan: 10000
+  toSpawn: {fileID: 5043495714547847409, guid: 095fafc170d13e44fbe5bd4b6ec6226e, type: 3}
+  spawnSpan: 25
+  gameManager: {fileID: 0}
+  spawnObjects:
+  - {fileID: 5043495714547847409, guid: 095fafc170d13e44fbe5bd4b6ec6226e, type: 3}
+  - {fileID: 1521326617462418343, guid: 4b81f5ec22a893c44ba0982581c2cf77, type: 3}
+  - {fileID: 532498941716480714, guid: 2523e0286368d364297e32b4c0011c0e, type: 3}

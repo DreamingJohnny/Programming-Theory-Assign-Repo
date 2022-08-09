@@ -6,7 +6,7 @@ public class RandomSpawner : Spawner {
 
 	[SerializeField] private GameObject[] gameObjects;
 
-	override public void SpawnObject() {
+	protected override void SpawnObject() {
 		GameObject clone = Instantiate(GetRandomSpawn());
 		clone.transform.SetPositionAndRotation(transform.position, transform.rotation);
 	}
