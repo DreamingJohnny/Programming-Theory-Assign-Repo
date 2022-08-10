@@ -7,7 +7,7 @@ using System;
 
 public class Cargo : MonoBehaviour {
 
-	public delegate void CargoAction(string content);
+	public delegate void CargoAction(string content, float value);
 	public static event CargoAction OnCargoDestroyed;
 
 	[SerializeField] private GameObject[] contentIcons;
@@ -50,7 +50,7 @@ public class Cargo : MonoBehaviour {
 	}
 
 	public void OnDestroy() {
-		OnCargoDestroyed(content);
+		OnCargoDestroyed(content, value);
 		Destroy(gameObject);
 	}
 

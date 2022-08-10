@@ -24,7 +24,7 @@ public class CargoUI : MonoBehaviour {
 		cargoText.text = "";
 	}
 
-	private void SetCargoText(string content) {
+	private void SetCargoText(string content, float value) {
 		TimeShown = 0f;
 		cargoText.SetText(content.Trim());
 	}
