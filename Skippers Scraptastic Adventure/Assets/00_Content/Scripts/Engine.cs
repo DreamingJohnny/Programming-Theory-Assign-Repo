@@ -17,29 +17,29 @@ public class Engine : MonoBehaviour {
 	public float MaxFuel { get { return maxFuelAmount; } }
 
 	[Tooltip("Amount of fuel held in engine, is also the output the engine produces.")]
-	//TODO: Fix this so that there is an actual working max and min here.
-	[SerializeField][Range(0, 40)] private float fuelAmount;
-	public float FuelAmount { get { return fuelAmount; } set { fuelAmount = Mathf.Min(maxFuelAmount, value); } }
+	[Range(0, 40)][SerializeField] private float fuelAmount;
 
-	private const float highFuelTreshold = 30f;
-	private const float lowFuelTreshold = 10f;
-	private const float noFuelTreshold = 0f;
+	public float FuelAmount { get { return fuelAmount; } set { fuelAmount = Mathf.Clamp(value, 0f, maxFuelAmount); } }
+
+	public const float HighFuelTreshold = 30f;
+	public const float LowFuelTreshold = 10f;
+	public const float NoFuelTreshold = 0f;
 
 	[Tooltip("Amount of fuel consumed by engine per s.")]
-	[SerializeField][Min(0)] private float fuelConsumption;
+	[Min(0)][SerializeField] private float fuelConsumption;
 	public float FuelConsumption { get { return fuelConsumption; } }
 
-	private const float topSpeed = 3f;
-	private const float halfSpeed = 2f;
-	private const float lowSpeed = 0.5f;
-	private const float noSpeed = 0f;
+	public const float TopSpeed = 3f;
+	public const float HalfSpeed = 2f;
+	public const float LowSpeed = 0.5f;
+	public const float NoSpeed = 0f;
 
 	public float Speed {
 		get {
-			if (fuelAmount >= highFuelTreshold) return topSpeed;
-			else if (fuelAmount >= lowFuelTreshold) return halfSpeed;
-			else if (fuelAmount <= noFuelTreshold) return noSpeed;
-			else return lowSpeed;
+			if (fuelAmount >= HighFuelTreshold) return TopSpeed;
+			else if (fuelAmount >= LowFuelTreshold) return HalfSpeed;
+			else if (fuelAmount <= NoFuelTreshold) return NoSpeed;
+			else return LowSpeed;
 		}
 	}
 
@@ -63,7 +63,7 @@ public class Engine : MonoBehaviour {
 		dropPointLight.gameObject.SetActive(false);
 	}
 
-	void Update() {
+	private void Update() {
 		if (isRunning) {
 			RunEngine();
 			SetEngineLight();
@@ -100,13 +100,13 @@ public class Engine : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		if (other.TryGetComponent(out Cargo cargo)) {
+		if (other.TryGetComponent(out Cargo _)) {
 			dropPointLight.gameObject.SetActive(true);
 		}
 	}
 
 	private void OnTriggerExit(Collider other) {
-		if (other.TryGetComponent(out Cargo cargo)) {
+		if (other.TryGetComponent(out Cargo _)) {
 			dropPointLight.gameObject.SetActive(false);
 		}
 	}

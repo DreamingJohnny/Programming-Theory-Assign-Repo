@@ -21,8 +21,11 @@ public class Navigator : MonoBehaviour {
 	[SerializeField] private float routeLeft;
 	public float RouteLeft { get { return routeLeft; } set { routeLeft = Mathf.Max(0, value); } }
 
-	[SerializeField][Min(0)] private float routeTravelled;
-	public float RouteTravelled { get { return routeTravelled; } }
+	public float RouteTravelled {
+		get {
+			return Mathf.Max(0f, (routeLength - routeLeft));
+		}
+	}
 
 	[Tooltip("Amount of distance the ship moves every s.")]
 	[SerializeField][Min(0)] private float currentSpeed;
@@ -43,8 +46,7 @@ public class Navigator : MonoBehaviour {
 
 	private void HandleGameStarted() {
 		isTravelling = true;
-		routeLeft = routeLength;
-		routeTravelled = routeLength - routeLeft;
+		RouteLeft = routeLength;
 	}
 	private void HandleGameStopped() {
 		isTravelling = false;
@@ -67,7 +69,6 @@ public class Navigator : MonoBehaviour {
 		if (engine.isActiveAndEnabled && engine.IsRunning) {
 			currentSpeed = engine.Speed * Time.deltaTime;
 			routeLeft -= currentSpeed;
-			routeTravelled += currentSpeed;
 		}
 	}
 }

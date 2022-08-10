@@ -22,9 +22,9 @@ public class Cargo : MonoBehaviour {
 
 	[SerializeField] private string content;
 
-	[SerializeField] private float flammability;
-	[SerializeField] private float ballistic;
-	[SerializeField] private float value;
+	[Min(0)] [SerializeField] private float flammability;
+	[Min(0)] [SerializeField] private float ballistic;
+	[Min(0)] [SerializeField] private float value;
 
 	public bool IsRevealed;
 
