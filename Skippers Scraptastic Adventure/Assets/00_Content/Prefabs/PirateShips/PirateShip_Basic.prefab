@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardingSpeed: 1.5
-  health: 3
+  health: 26
 --- !u!54 &2142466520665622233
 Rigidbody:
   m_ObjectHideFlags: 0

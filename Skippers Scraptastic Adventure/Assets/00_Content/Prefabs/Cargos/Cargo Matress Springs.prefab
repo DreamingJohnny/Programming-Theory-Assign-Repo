@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: value
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: content
@@ -21,7 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: ballistic
-      value: 3
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
+      propertyPath: flammability
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: knownContentIcon

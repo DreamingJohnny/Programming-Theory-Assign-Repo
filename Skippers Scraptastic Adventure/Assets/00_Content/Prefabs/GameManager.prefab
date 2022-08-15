@@ -46,8 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiHandler: {fileID: 0}
   ship: {fileID: 0}
-  pirateSpawner: {fileID: 0}
-  cargoSpawner: {fileID: 0}
+  difficultyRaiseSpan: 60
 --- !u!114 &1622938679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,4 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7112fc50d2c247449b24b0a878434095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yOffset: 1.5
+  zMax: 4
+  zMin: -4
+  xMax: 6
+  xMin: -6
+  yOffset: 2

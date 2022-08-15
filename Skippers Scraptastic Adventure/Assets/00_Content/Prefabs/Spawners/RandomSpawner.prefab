@@ -43,10 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c231b5fdf8938a4db0823544ee40c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsSpawning: 1
   toSpawn: {fileID: 0}
-  spawnSpan: 4
+  spawnSpan: 10
   gameObjects:
   - {fileID: 4020981909853171808, guid: 5c7763a49f051814fbb9943d51d861f8, type: 3}
   - {fileID: 2645058736571966261, guid: 14b3e0c57a4faa147b790fdca1ae61fe, type: 3}
   - {fileID: 4795715826869872723, guid: 5fd920292dd1e48418a03f27376352b6, type: 3}
+  - {fileID: 7390741826134330634, guid: 90e61aac05e616845af7571946d1eaf0, type: 3}
+  - {fileID: 898737282052105765, guid: 6b87e266e4f14904fb945e13bb812776, type: 3}

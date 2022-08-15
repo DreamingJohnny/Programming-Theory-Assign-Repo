@@ -12,12 +12,20 @@ PrefabInstance:
       value: Cargo Soup Cans
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
+      propertyPath: value
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: content
       value: Canned Pea Soup
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: ballistic
-      value: 2
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
+      propertyPath: flammability
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7157990161397775509, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: m_Size.x

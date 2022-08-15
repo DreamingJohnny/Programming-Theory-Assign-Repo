@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5409621048890409742, guid: 4b81f5ec22a893c44ba0982581c2cf77, type: 3}
       propertyPath: health
-      value: 6
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 5409621048890409742, guid: 4b81f5ec22a893c44ba0982581c2cf77, type: 3}
       propertyPath: boardingSpeed

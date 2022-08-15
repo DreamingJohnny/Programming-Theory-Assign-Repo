@@ -146,9 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   engine: {fileID: 2851165755560426173}
   isTravelling: 0
-  routeLength: 200
+  routeLength: 360
   routeLeft: 0
-  routeTravelled: 0
   currentSpeed: 0
 --- !u!114 &5266706882517994735
 MonoBehaviour:
@@ -314,6 +313,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrowbarStation
       objectReference: {fileID: 0}
+    - target: {fileID: 6428332532163151820, guid: fe6e8bfde621f77439c2d8ae76709dc8, type: 3}
+      propertyPath: m_Size.y
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428332532163151820, guid: fe6e8bfde621f77439c2d8ae76709dc8, type: 3}
+      propertyPath: m_Center.y
+      value: 2.25
+      objectReference: {fileID: 0}
     - target: {fileID: 8913470900574635133, guid: fe6e8bfde621f77439c2d8ae76709dc8, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -328,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8913470900574635133, guid: fe6e8bfde621f77439c2d8ae76709dc8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.5
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 8913470900574635133, guid: fe6e8bfde621f77439c2d8ae76709dc8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -374,11 +381,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1006677243, guid: 0bd022c75131b05468c0044c13d3ee97, type: 3}
       propertyPath: fuelAmount
-      value: 22.8
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006677243, guid: 0bd022c75131b05468c0044c13d3ee97, type: 3}
+      propertyPath: maxFuelAmount
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1006677243, guid: 0bd022c75131b05468c0044c13d3ee97, type: 3}
       propertyPath: fuelConsumption
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402242354100252515, guid: 0bd022c75131b05468c0044c13d3ee97, type: 3}
+      propertyPath: m_Size.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7951044818397637717, guid: 0bd022c75131b05468c0044c13d3ee97, type: 3}
       propertyPath: m_RootOrder
@@ -457,9 +472,17 @@ PrefabInstance:
       propertyPath: ammunition
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -9060894865211364814, guid: 28c76f45204aea944bd44b450b9e4e54, type: 3}
+      propertyPath: cannonBall
+      value: 
+      objectReference: {fileID: 2133950517655633120, guid: 7314d9f046e0e134095e9d716b819b50, type: 3}
     - target: {fileID: 1742477829161190517, guid: 28c76f45204aea944bd44b450b9e4e54, type: 3}
       propertyPath: m_Name
       value: Cannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165336556506110691, guid: 28c76f45204aea944bd44b450b9e4e54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5080463626750414120, guid: 28c76f45204aea944bd44b450b9e4e54, type: 3}
       propertyPath: m_RootOrder

@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7974987923971351684, guid: 5ed9ae19231fce648b17571d080055c1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8725519901522877910, guid: 5ed9ae19231fce648b17571d080055c1, type: 3}
       propertyPath: m_Pivot.x
@@ -1403,6 +1403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VictoryPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 3181040079725812845, guid: 2831428631b2efd41ba093417d57881d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4489133655000029152, guid: 2831428631b2efd41ba093417d57881d, type: 3}
       propertyPath: m_fontSize
       value: 45
@@ -1532,7 +1536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3270699661463966354, guid: da1a1f2d1d748ff41a6c3fc7fd8b8bb4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6975002836156431964, guid: da1a1f2d1d748ff41a6c3fc7fd8b8bb4, type: 3}
       propertyPath: m_Pivot.x

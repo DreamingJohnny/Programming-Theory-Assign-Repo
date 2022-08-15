@@ -55,19 +55,20 @@ public class Engine : MonoBehaviour {
 
 	private void HandleGameStopped() {
 		isRunning = false;
-		dropPointLight.gameObject.SetActive(false);
+		dropPointLight.enabled = false;
 	}
 
 	private void HandleGameStarted() {
 		isRunning = false;
-		dropPointLight.gameObject.SetActive(false);
+		dropPointLight.enabled = false;
 	}
 
 	private void Update() {
 		if (isRunning) {
 			RunEngine();
-			SetEngineLight();
 		}
+		
+		SetEngineLight();
 	}
 
 	private void RunEngine() {
@@ -101,13 +102,13 @@ public class Engine : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.TryGetComponent(out Cargo _)) {
-			dropPointLight.gameObject.SetActive(true);
+			dropPointLight.enabled = true;
 		}
 	}
 
 	private void OnTriggerExit(Collider other) {
 		if (other.TryGetComponent(out Cargo _)) {
-			dropPointLight.gameObject.SetActive(false);
+			dropPointLight.enabled = false;
 		}
 	}
 
