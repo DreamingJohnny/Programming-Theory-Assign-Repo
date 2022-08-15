@@ -309,9 +309,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4187035535098921164}
     m_Modifications:
+    - target: {fileID: 2165040871365730117, guid: fe6e8bfde621f77439c2d8ae76709dc8, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3369485742478214505, guid: fe6e8bfde621f77439c2d8ae76709dc8, type: 3}
       propertyPath: m_Name
       value: CrowbarStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 3369485742478214505, guid: fe6e8bfde621f77439c2d8ae76709dc8, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6428332532163151820, guid: fe6e8bfde621f77439c2d8ae76709dc8, type: 3}
       propertyPath: m_Size.y

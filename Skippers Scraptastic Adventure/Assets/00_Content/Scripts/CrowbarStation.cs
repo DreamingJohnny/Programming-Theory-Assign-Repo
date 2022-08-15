@@ -9,22 +9,22 @@ public class CrowbarStation : MonoBehaviour {
 	private Cargo held;
 
 	private void OnEnable() {
-		dropSpotLight.gameObject.SetActive(false);
+		dropSpotLight.enabled = false;
 		held = null;
 	}
 
 	private void OnTriggerEnter(Collider other) {
 		//If the station already holds a piece of cargo it won't show that it is ready to accept a new one.
 		if (held != null) return;
-
-		if (other.TryGetComponent(out Cargo cargo)) {
-			dropSpotLight.gameObject.SetActive(true);
+		//TODO: Check if these should by "try" can "GetComponent return treat as bool?
+		if (other.TryGetComponent(out Cargo _)) {
+			dropSpotLight.enabled = true;
 		}
 	}
 
 	private void OnTriggerExit(Collider other) {
-		if (other.TryGetComponent(out Cargo cargo)) {
-			dropSpotLight.gameObject.SetActive(false);
+		if (other.TryGetComponent(out Cargo _)) {
+			dropSpotLight.enabled = false;
 			held = null;
 		}
 	}
