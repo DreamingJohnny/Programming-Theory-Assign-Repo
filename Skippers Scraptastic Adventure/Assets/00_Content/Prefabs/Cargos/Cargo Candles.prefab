@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7689843549259311304
+--- !u!1001 &793508623466695025
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,28 +9,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 875668100085048770, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: m_Name
-      value: Cargo Fireworks
+      value: Cargo Candles
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: value
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: content
-      value: Ms. May's Fireworks
+      value: Mrs Charms Excellent Candles
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: ballistic
-      value: 24
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: flammability
-      value: 30
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: knownContentIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 17fadbbfd449b4c47ac3b7e9aca80b1e, type: 3}
+      objectReference: {fileID: 21300000, guid: f58a816c206825e4e8b1b481f349c2bb, type: 3}
     - target: {fileID: 8206880076135302880, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8206880076135302880, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8206880076135302880, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

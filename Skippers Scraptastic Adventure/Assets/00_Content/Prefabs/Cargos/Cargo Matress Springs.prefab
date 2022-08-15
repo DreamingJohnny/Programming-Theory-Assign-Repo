@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: content
-      value: Matress Springs
+      value: Stacks Co Matress Springs
       objectReference: {fileID: 0}
     - target: {fileID: 4368438350059045942, guid: db186b2749ba52143af46f7873a26f55, type: 3}
       propertyPath: ballistic
