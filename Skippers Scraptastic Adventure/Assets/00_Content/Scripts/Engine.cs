@@ -116,7 +116,7 @@ public class Engine : MonoBehaviour {
 		if (other.TryGetComponent(out Cargo cargo)) {
 			if (cargo.IsHeld == false) {
 				SetFuel(cargo);
-				dropPointLight.gameObject.SetActive(false);
+				dropPointLight.enabled = false;
 			}
 		}
 	}
