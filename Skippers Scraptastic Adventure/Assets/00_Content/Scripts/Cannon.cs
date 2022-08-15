@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cannon : MonoBehaviour {
+
 	[SerializeField] private Light dropPointLight;
-	//TODO: Give this a Tooltip.
 	[SerializeField] private GameObject spawnPoint;
 
 	[SerializeField] private GameObject cannonBall;

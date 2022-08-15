@@ -21,14 +21,11 @@ public class UIHandler : MonoBehaviour {
 	[SerializeField] private CargoUI cargoUI;
 	[SerializeField] private Slider travelLog;
 
-	//[SerializeField] private TextMeshProUGUI destroyedCargoText;
-
 	public delegate void ButtonAction();
 	public static event ButtonAction OnStartButtonPressed;
 	public static event ButtonAction OnQuitButtonPressed;
 
 	public void OnStartPressed() {
-		Debug.Log("StartPressed function activated...");
 		OnStartButtonPressed();
 
 		titlePanel.SetActive(false);
@@ -49,18 +46,15 @@ public class UIHandler : MonoBehaviour {
 	}
 
 	public void QuitPressed() {
-		Debug.Log("QuitPressed function activated...");
 		OnQuitButtonPressed();
 	}
 
 	public void ShowGameOver() {
-		Debug.Log($"{this.name} was just told that the game was lost.");
 		gameOverPanel.SetActive(true);
 		retry.gameObject.SetActive(true);
 		SetHUD(false);
-
-		//Also, remember to add to travelLog that it needs check its' values again when enabled.
 	}
+
 	public void ShowVictory() {
 		victoryPanel.SetActive(true);
 		retry.gameObject.SetActive(true);

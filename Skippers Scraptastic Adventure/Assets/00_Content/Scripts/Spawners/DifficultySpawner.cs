@@ -9,7 +9,9 @@ public class DifficultySpawner : Spawner {
 
 	[SerializeField] private GameObject[] spawnObjects;
 
+	// POLYMORPHISM
 	protected override void HandleGameStarted() {
+		//INHERITANCE
 		base.HandleGameStarted();
 		//Resets what to spawn when a new game starts.
 		toSpawn = spawnObjects[0];
@@ -18,7 +20,9 @@ public class DifficultySpawner : Spawner {
 	/// <summary>
 	/// After having spawned it looks at the UpdateDifficulty() function to see if it should increase the Difficulty.
 	/// </summary>
+	// POLYMORPHISM
 	protected override void SpawnObject() {
+		//INHERITANCE
 		base.SpawnObject();
 		UpdateDifficulty();
 	

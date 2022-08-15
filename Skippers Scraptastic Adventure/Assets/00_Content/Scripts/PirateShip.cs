@@ -7,8 +7,10 @@ public class PirateShip : MonoBehaviour {
 	[Range(0,15)] [SerializeField] private float boardingSpeed;
 	[Min(0)] [SerializeField] private float health;
 
+	// ENCAPSULATION
 	public float Health { get { return health; } set { health = Mathf.Max(value, 0f); } }
 
+	// ENCAPSULATION
 	public float BoardingSpeed { get { return boardingSpeed; } set { boardingSpeed = Mathf.Max(value, 0f); } }
 
 	private Rigidbody rigidBody;

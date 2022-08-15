@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 	private float timeSinceDifficultyRaised = 0f;
 	private int difficulty = 0;
 
+	// ENCAPSULATION
 	public int Difficulty { get { return difficulty; } }
 
 	private void OnEnable() {
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	//ABSTRACTION
 	private void HandleOnStartButtonPressed() {
 		SetObjectsState(true);
 		ResetDifficulty();
@@ -77,7 +79,6 @@ public class GameManager : MonoBehaviour {
 		SetObjectsState(false);
 	}
 	private void GiveCargoBonus(float bonus) {
-		Debug.Log("GameManager sends bonus to navigator...");
 		navigator.SpeedBoost += bonus;
 	}
 

@@ -6,7 +6,9 @@ public class RandomSpawner : Spawner {
 
 	[SerializeField] private GameObject[] gameObjects;
 
+	// POLYMORPHISM
 	protected override void SpawnObject() {
+		//INHERITANCE
 		GameObject clone = Instantiate(GetRandomSpawn());
 		clone.transform.SetPositionAndRotation(transform.position, transform.rotation);
 	}

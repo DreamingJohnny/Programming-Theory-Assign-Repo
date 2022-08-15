@@ -6,24 +6,24 @@ using UnityEngine;
 public class CursorGrabber : MonoBehaviour {
 
 	private GameObject selectedObject;
+	
 	private GameObject heldObject;
 
 	private Vector3 targetPosition;
 
-	[SerializeField] private float zMax;
-	[SerializeField] private float zMin;
+	public const float zMax = 4.0f;
+	public const float zMin = -4.0f;
 
-	[SerializeField] private float xMax;
-	[SerializeField] private float xMin;
+	public const float XMax = 6.0f;
+	public const float XMin = -6.0f;
 
-	[SerializeField] private float yOffset;
+	public const float YOffset = 2.0f;
 
 	private void FixedUpdate() {
-		var hit = CastRay();
+		RaycastHit hit = CastRay();
 
 		if (hit.collider != null) {
-			Cargo cargo = hit.collider.GetComponent<Cargo>();
-			if (cargo != null) selectedObject = cargo.gameObject;
+			if (hit.collider.TryGetComponent<Cargo>(out Cargo cargo)) selectedObject = cargo.gameObject;
 			else {
 				selectedObject = null;
 			}
@@ -53,11 +53,12 @@ public class CursorGrabber : MonoBehaviour {
 			Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(heldObject.transform.position).z);
 			Vector3 worldPos = Camera.main.ScreenToWorldPoint(position);
 			worldPos.z = Mathf.Clamp(worldPos.z, zMin, zMax);
-			worldPos.x = Mathf.Clamp(worldPos.x, xMin, xMax);
-			targetPosition = new Vector3(worldPos.x, yOffset, worldPos.z);
+			worldPos.x = Mathf.Clamp(worldPos.x, XMin, XMax);
+			targetPosition = new Vector3(worldPos.x, YOffset, worldPos.z);
 		}
 	}
 
+	//ABSTRACTION
 	private RaycastHit CastRay() {
 		Vector3 screenCursorPosFar = new Vector3(
 			Input.mousePosition.x,

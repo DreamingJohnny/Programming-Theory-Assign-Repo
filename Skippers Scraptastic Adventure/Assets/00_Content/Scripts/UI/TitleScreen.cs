@@ -15,7 +15,6 @@ public class TitleScreen : MonoBehaviour {
 	}
 	
 	public void QuitPressed() {
-		Debug.Log("QuitPressed function activated...");
 		OnQuitButtonPressed();
 	}
 }

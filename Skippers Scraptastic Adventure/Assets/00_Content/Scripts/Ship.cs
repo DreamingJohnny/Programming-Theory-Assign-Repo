@@ -8,6 +8,6 @@ public class Ship : MonoBehaviour {
 	public static event ShipAction OnShipBoarded;
 
 	private void OnTriggerEnter(Collider other) {
-		if (other.TryGetComponent<PirateShip>(out PirateShip pirateShip)) OnShipBoarded();
+		if (other.TryGetComponent(out PirateShip pirateShip)) OnShipBoarded();
 	}
 }

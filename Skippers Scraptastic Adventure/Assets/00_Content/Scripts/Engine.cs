@@ -19,6 +19,7 @@ public class Engine : MonoBehaviour {
 	[Tooltip("Amount of fuel held in engine, is also the output the engine produces.")]
 	[Range(0, 40)][SerializeField] private float fuelAmount;
 
+	// ENCAPSULATION
 	public float FuelAmount { get { return fuelAmount; } set { fuelAmount = Mathf.Clamp(value, 0f, maxFuelAmount); } }
 
 	public const float HighFuelTreshold = 30f;
@@ -34,6 +35,7 @@ public class Engine : MonoBehaviour {
 	public const float LowSpeed = 0.5f;
 	public const float NoSpeed = 0f;
 
+	// ENCAPSULATION
 	public float Speed {
 		get {
 			if (fuelAmount >= HighFuelTreshold) return TopSpeed;
@@ -71,6 +73,9 @@ public class Engine : MonoBehaviour {
 		SetEngineLight();
 	}
 
+	/// <summary>
+	/// Consumes fuel, and sets isRunning to "false" if fuel is zero.
+	/// </summary>
 	private void RunEngine() {
 
 		if (FuelAmount <= 0) {
@@ -82,7 +87,6 @@ public class Engine : MonoBehaviour {
 	}
 
 	public void StartEngine(bool toggle) {
-		Debug.Log($"{toggle}");
 		isRunning = toggle;
 	}
 

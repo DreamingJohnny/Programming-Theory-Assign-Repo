@@ -19,24 +19,21 @@ public class Navigator : MonoBehaviour {
 	public float RouteLength { get { return routeLength; } }
 
 	[SerializeField] private float routeLeft;
+	// ENCAPSULATION
 	public float RouteLeft { get { return routeLeft; } set { routeLeft = Mathf.Max(0, value); } }
-
-	public float RouteTravelled {
-		get {
-			return Mathf.Max(0f, (routeLength - routeLeft));
-		}
-	}
+	// ENCAPSULATION
+	public float RouteTravelled {	get {	return Mathf.Max(0f, (routeLength - routeLeft));	}	}
 
 	[Tooltip("Amount of distance the ship moves every s.")]
 	[SerializeField][Min(0)] private float currentSpeed;
+	// ENCAPSULATION
 	public float CurrentSpeed { get { return currentSpeed; } }
 
 	private bool hasReachedGoal;
 	public bool HasReachedGoal { get { return hasReachedGoal; } }
 
 	[Min(1)] private float speedBoost = 1.0f;
-
-	//TODO: Explain this.
+	// ENCAPSULATION
 	public float SpeedBoost { get { return speedBoost; } set { speedBoost = Mathf.Max(value, 1.0f); } }
 
 	private void OnEnable() {
@@ -55,13 +52,10 @@ public class Navigator : MonoBehaviour {
 		isTravelling = true;
 		RouteLeft = routeLength;
 	}
+
 	private void HandleGameStopped() {
 		isTravelling = false;
 		currentSpeed = 0f;
-	}
-
-	void Start() {
-		Debug.Assert(engine != null);
 	}
 
 	void Update() {
@@ -76,7 +70,6 @@ public class Navigator : MonoBehaviour {
 		if (engine.isActiveAndEnabled && engine.IsRunning) {
 			currentSpeed = engine.Speed * Time.deltaTime * SpeedBoost;
 			routeLeft -= currentSpeed;
-			Debug.Log($"{SpeedBoost}");
 		}
 
 		SpeedBoost -= Time.deltaTime;
