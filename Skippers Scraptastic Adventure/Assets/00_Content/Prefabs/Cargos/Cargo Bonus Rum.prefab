@@ -162,4 +162,4 @@ MonoBehaviour:
   value: 0
   IsRevealed: 0
   IsHeld: 0
-  bonus: 10
+  bonus: 0.2
