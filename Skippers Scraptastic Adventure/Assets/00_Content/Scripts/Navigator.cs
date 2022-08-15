@@ -34,9 +34,16 @@ public class Navigator : MonoBehaviour {
 	private bool hasReachedGoal;
 	public bool HasReachedGoal { get { return hasReachedGoal; } }
 
+	[Min(1)] private float speedBoost = 1.0f;
+
+	//TODO: Explain this.
+	public float SpeedBoost { get { return speedBoost; } set { speedBoost = Mathf.Max(value, 1.0f); } }
+
 	private void OnEnable() {
 		GameManager.OnGameStarted += HandleGameStarted;
 		GameManager.OnGameStopped += HandleGameStopped;
+
+		speedBoost = 1.0f;
 	}
 
 	private void OnDisable() {
@@ -67,8 +74,11 @@ public class Navigator : MonoBehaviour {
 		}
 
 		if (engine.isActiveAndEnabled && engine.IsRunning) {
-			currentSpeed = engine.Speed * Time.deltaTime;
+			currentSpeed = engine.Speed * Time.deltaTime * SpeedBoost;
 			routeLeft -= currentSpeed;
+			Debug.Log($"{SpeedBoost}");
 		}
+
+		SpeedBoost -= Time.deltaTime;
 	}
 }

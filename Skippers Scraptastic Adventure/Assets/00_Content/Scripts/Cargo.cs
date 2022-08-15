@@ -62,7 +62,7 @@ public class Cargo : MonoBehaviour {
 		meshRenderer.material = standardMat;
 	}
 
-	public void SetContentIcons(bool state) {
+	public virtual void SetContentIcons(bool state) {
 		IsRevealed = state;
 
 		if (!IsRevealed) {

@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
 	[SerializeField] private UIHandler uiHandler;
-
+	[SerializeField] private Navigator navigator;
 	[SerializeField] private Ship ship;
 
 	public delegate void GameAction();
@@ -25,7 +25,10 @@ public class GameManager : MonoBehaviour {
 
 		Navigator.OnShipReachedGoal += HandleOnGameWon;
 		Ship.OnShipBoarded += HandleOnGameOver;
+
+		CargoBonus.OnCargoBonusShown += GiveCargoBonus;
 	}
+
 
 	private void OnDisable() {
 		TitleScreen.OnStartButtonPressed -= HandleOnStartButtonPressed;
@@ -33,6 +36,8 @@ public class GameManager : MonoBehaviour {
 
 		Navigator.OnShipReachedGoal -= HandleOnGameWon;
 		Ship.OnShipBoarded -= HandleOnGameOver;
+
+		CargoBonus.OnCargoBonusShown -= GiveCargoBonus;
 	}
 
 	private void Update() {
@@ -70,6 +75,10 @@ public class GameManager : MonoBehaviour {
 		uiHandler.ShowGameOver();
 		OnGameStopped();
 		SetObjectsState(false);
+	}
+	private void GiveCargoBonus(float bonus) {
+		Debug.Log("GameManager sends bonus to navigator...");
+		navigator.SpeedBoost += bonus;
 	}
 
 	private void SetObjectsState(bool state) {
